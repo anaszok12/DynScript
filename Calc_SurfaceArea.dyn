@@ -1,0 +1,473 @@
+{
+  "Uuid": "44a885c3-f99f-41e2-9578-b3712a48beef",
+  "IsCustomNode": false,
+  "Description": null,
+  "Name": "Calc_SurfaceArea",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [
+    {
+      "Id": "f3e2d61e01094b919758de5e2460187b",
+      "Name": "Watch",
+      "Type": "float",
+      "InitialValue": "367",
+      "Description": "Visualize the output of node."
+    },
+    {
+      "Id": "9a87db9653e54607996fd3905fd65cba",
+      "Name": "Element.SetParameterByName",
+      "Type": "unknown",
+      "InitialValue": "",
+      "Description": "Set one of the element's parameters.\n\nElement.SetParameterByName (parameterName: string, value: var): Element"
+    }
+  ],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "a304317f-d48a-4ed5-9056-0a8db553ca1d-000aed7a"
+      ],
+      "Id": "b0cf7194ca1e46d297170848d59b1039",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "f4a1d91aba694be39f308bcacce431a1",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Element.Faces",
+      "Id": "35f25e42ad0c46b5b047934fec23ece0",
+      "Inputs": [
+        {
+          "Id": "3041ce41298f4a5a8f94845b01c40c44",
+          "Name": "element",
+          "Description": "Revit.Elements.Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "8d5656c9521c41278ebb04b937cd3bbd",
+          "Name": "Surface[]",
+          "Description": "Surface[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "The Faces in this Element\n\nElement.Faces: Surface[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Surface.Area",
+      "Id": "569b03cbf3f24af0808aef6a5c0aec81",
+      "Inputs": [
+        {
+          "Id": "eaa62ea6f7cc4c45bef468e9454d3576",
+          "Name": "surface",
+          "Description": "Autodesk.DesignScript.Geometry.Surface",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "a78e959f254841c58e67e145675ceb64",
+          "Name": "double",
+          "Description": "double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Returns the total surface area.\n\nSurface.Area: double"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.Flatten@var[]..[],int",
+      "Id": "8cee7b1004e5478ab097cd78a4446ac0",
+      "Inputs": [
+        {
+          "Id": "e5187e2fadb048a98d1c9a02ad017c0d",
+          "Name": "list",
+          "Description": "List to flatten.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "889156f3d86247219db6d60c389e74ca",
+          "Name": "amt",
+          "Description": "Layers of nesting to remove.\n\nint\nDefault value : -1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "885593173ad84118a7f80cfc07d0c5af",
+          "Name": "var[]..[]",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Flattens a nested list of lists by a certain amount.\n\nList.Flatten (list: var[]..[], amt: int = -1): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.Math.Sum@double[]",
+      "Id": "5ebcec40cff6425397c82edee8de2af7",
+      "Inputs": [
+        {
+          "Id": "98b941fe2df842969240e457b059a5c2",
+          "Name": "values",
+          "Description": "The numbers to sum\n\ndouble[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "68333f19b66c46639737fb111bd0c569",
+          "Name": "sum",
+          "Description": "The sum of the values",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Find the sum of a series of numbers\n\nMath.Sum (values: double[]): double"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.Math.Round@double",
+      "Id": "70d0f6f430ef4522aef13e4fc2668520",
+      "Inputs": [
+        {
+          "Id": "4222c3528bc141f897e23e59de5b601a",
+          "Name": "number",
+          "Description": "Number to round.\n\ndouble",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "fdecbe37df544661a836f1837cd9eba6",
+          "Name": "number",
+          "Description": "Integral value closes to the number.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Rounds a number to the closest integral value. Note that this method returns a double-precision floating-point number instead of an integral type.\n\nMath.Round (number: double): double"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "f3e2d61e01094b919758de5e2460187b",
+      "Inputs": [
+        {
+          "Id": "f6e13d965896495ca945072f584ffd56",
+          "Name": "",
+          "Description": "Node to evaluate.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "c276423e3cc74492b3156c89fd9adfa4",
+          "Name": "",
+          "Description": "Watch contents.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Visualize the output of node."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Element.SetParameterByName@string,var",
+      "Id": "9a87db9653e54607996fd3905fd65cba",
+      "Inputs": [
+        {
+          "Id": "c4064c2e039343c4a9a6d637b0f401f0",
+          "Name": "element",
+          "Description": "Revit.Elements.Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "066c3a6a20374d2aa1f193ed6f787a30",
+          "Name": "parameterName",
+          "Description": "The name of the parameter to set.\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "24b0059674e74567894c0e58568b9d6e",
+          "Name": "value",
+          "Description": "The value.\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "4441452007f54bd6b07c58e182754849",
+          "Name": "Element",
+          "Description": "Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Set one of the element's parameters.\n\nElement.SetParameterByName (parameterName: string, value: var): Element"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "\"Surface Area\";",
+      "Id": "2b9045bceb8d45719a51be934d9eded4",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "f7f2cc18318342cf946de8f796989a4e",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "f4a1d91aba694be39f308bcacce431a1",
+      "End": "3041ce41298f4a5a8f94845b01c40c44",
+      "Id": "fa0a5ba8c2324257b3a724272e346671"
+    },
+    {
+      "Start": "f4a1d91aba694be39f308bcacce431a1",
+      "End": "c4064c2e039343c4a9a6d637b0f401f0",
+      "Id": "c66075dac5cd45f2ab89fbc7e7c7a746"
+    },
+    {
+      "Start": "8d5656c9521c41278ebb04b937cd3bbd",
+      "End": "eaa62ea6f7cc4c45bef468e9454d3576",
+      "Id": "c3860f043e274c5395c1eb376a8f47b7"
+    },
+    {
+      "Start": "a78e959f254841c58e67e145675ceb64",
+      "End": "e5187e2fadb048a98d1c9a02ad017c0d",
+      "Id": "16511f6a7d494551abfe833ba573bc4e"
+    },
+    {
+      "Start": "885593173ad84118a7f80cfc07d0c5af",
+      "End": "98b941fe2df842969240e457b059a5c2",
+      "Id": "2cb8bc6f1ee948998df0ccd477109a14"
+    },
+    {
+      "Start": "68333f19b66c46639737fb111bd0c569",
+      "End": "4222c3528bc141f897e23e59de5b601a",
+      "Id": "615a1015165040e8ba05ea71ce9c5933"
+    },
+    {
+      "Start": "fdecbe37df544661a836f1837cd9eba6",
+      "End": "f6e13d965896495ca945072f584ffd56",
+      "Id": "430954b6ca314598b6eddaa2ad53f533"
+    },
+    {
+      "Start": "c276423e3cc74492b3156c89fd9adfa4",
+      "End": "24b0059674e74567894c0e58568b9d6e",
+      "Id": "359f3525f9a1434f8527c70b7beb4fb1"
+    },
+    {
+      "Start": "f7f2cc18318342cf946de8f796989a4e",
+      "End": "066c3a6a20374d2aa1f193ed6f787a30",
+      "Id": "3e24a6edc85b4850981b89a5be06ecda"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.10.1.3976",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -507.707763671875,
+      "EyeY": 928.96112060546875,
+      "EyeZ": -197.53321838378906,
+      "LookX": 22.417327880859375,
+      "LookY": -15.01708984375,
+      "LookZ": 23.367904663085938,
+      "UpX": 0.14983515441417694,
+      "UpY": 0.97629612684249878,
+      "UpZ": 0.15619069337844849
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Select Model Element",
+        "Id": "b0cf7194ca1e46d297170848d59b1039",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 298.5,
+        "Y": 244.0346160697151
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Element.Faces",
+        "Id": "35f25e42ad0c46b5b047934fec23ece0",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 533.5,
+        "Y": 244.0346160697151
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Surface.Area",
+        "Id": "569b03cbf3f24af0808aef6a5c0aec81",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 796.57554284882008,
+        "Y": 244.0346160697151
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "List.Flatten",
+        "Id": "8cee7b1004e5478ab097cd78a4446ac0",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1072.8324783899716,
+        "Y": 244.0346160697151
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Math.Sum",
+        "Id": "5ebcec40cff6425397c82edee8de2af7",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1319.5015581970592,
+        "Y": 244.0346160697151
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Math.Round",
+        "Id": "70d0f6f430ef4522aef13e4fc2668520",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1561.2444375387586,
+        "Y": 244.0346160697151
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Watch",
+        "Id": "f3e2d61e01094b919758de5e2460187b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": true,
+        "Excluded": false,
+        "X": 1826.6783405527285,
+        "Y": 245.31069542517002
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Element.SetParameterByName",
+        "Id": "9a87db9653e54607996fd3905fd65cba",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": true,
+        "Excluded": false,
+        "X": 537.2448025516403,
+        "Y": 382.66327113664425
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "2b9045bceb8d45719a51be934d9eded4",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 252.34400537630063,
+        "Y": 409.34133027852482
+      }
+    ],
+    "Annotations": [],
+    "X": 134.6032190277387,
+    "Y": 162.57568034676549,
+    "Zoom": 0.20242052820540729
+  }
+}

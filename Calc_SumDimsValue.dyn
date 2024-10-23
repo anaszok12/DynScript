@@ -1,0 +1,333 @@
+{
+  "Uuid": "e6f042e1-745b-4a2a-863a-503b2f99f185",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Calc_SumDimsValue",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [
+    {
+      "Id": "e432d252bc12412296948de695012bb4",
+      "Name": "Select Model Element",
+      "Type": "selection",
+      "Type2": "hostSelection",
+      "Value": "",
+      "Description": "Select a model element from the document.",
+      "SelectedIndex": 0
+    }
+  ],
+  "Outputs": [
+    {
+      "Id": "75eeaabfb0fb4312b47ca7840fdd603b",
+      "Name": "Watch",
+      "Type": "unknown",
+      "InitialValue": "",
+      "Description": "Visualize the node's output"
+    }
+  ],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Dimension.Value",
+      "Id": "cb52b0001b5542afaccd7b1ba3c324c7",
+      "Inputs": [
+        {
+          "Id": "a65a7f32f4dc43319fab2aed98f5159b",
+          "Name": "dimension",
+          "Description": "Revit.Elements.Dimension",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "000ea9237a0f466c937724f5a57600dc",
+          "Name": "double[]",
+          "Description": "double[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get Dimension Value\n\nDimension.Value: double[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.Math.Sum@double[]",
+      "Id": "eefec8c6eab44b5f93fae884734bf30e",
+      "Inputs": [
+        {
+          "Id": "eed27897c6464ccd8fd024d456011349",
+          "Name": "values",
+          "Description": "Numbers to add to sum\n\ndouble[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "da5ace64154b4c1a9e2287d9dca992f7",
+          "Name": "double",
+          "Description": "The sum of the values",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Find the sum of a series of numbers\n\nMath.Sum (values: double[]): double"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "3784aae0-dd38-4cfd-ac57-a87ebe885a81",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "cb8b3affeae24fe2a1c3b7359ff7684a",
+      "Inputs": [
+        {
+          "Id": "c4a57cb9229f42388cc27673ed235e68",
+          "Name": "number",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "24d6c3dad67449138e57b4d2798a243d",
+          "Name": "fraction(str)",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Converts a decimal foot value to a fractional foot/inch string."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "75eeaabfb0fb4312b47ca7840fdd603b",
+      "Inputs": [
+        {
+          "Id": "2f45bc7172874baf8e7eb7d0ed1c72e7",
+          "Name": "",
+          "Description": "Node to show output from",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "2e33f75d068a48498c404d219999f225",
+          "Name": "",
+          "Description": "Node output",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Visualize the node's output"
+    },
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [],
+      "Id": "e432d252bc12412296948de695012bb4",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "3380a41201ba4c148d58ac7c6c553a96",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "000ea9237a0f466c937724f5a57600dc",
+      "End": "eed27897c6464ccd8fd024d456011349",
+      "Id": "d57a1652e79f4148984f73701143b591",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "da5ace64154b4c1a9e2287d9dca992f7",
+      "End": "c4a57cb9229f42388cc27673ed235e68",
+      "Id": "84a717ec34484c9d8fb7d36e5f97ed11",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "24d6c3dad67449138e57b4d2798a243d",
+      "End": "2f45bc7172874baf8e7eb7d0ed1c72e7",
+      "Id": "30aced53d66940cba029572989965bd9",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "3380a41201ba4c148d58ac7c6c553a96",
+      "End": "a65a7f32f4dc43319fab2aed98f5159b",
+      "Id": "6dd07f70f1cb472b9f73edecca6eee3f",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [
+    "3784aae0-dd38-4cfd-ac57-a87ebe885a81"
+  ],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "spring nodes",
+      "Version": "210.1.1",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "cb8b3affeae24fe2a1c3b7359ff7684a"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.16",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.2.5624",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Dimension.Value",
+        "ShowGeometry": true,
+        "Id": "cb52b0001b5542afaccd7b1ba3c324c7",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 557.216136948976,
+        "Y": 272.316263453334
+      },
+      {
+        "Name": "Math.Sum",
+        "ShowGeometry": true,
+        "Id": "eefec8c6eab44b5f93fae884734bf30e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 912.408774008211,
+        "Y": 272.316263453334
+      },
+      {
+        "Name": "ꟿ Feet.ToFraction",
+        "ShowGeometry": true,
+        "Id": "cb8b3affeae24fe2a1c3b7359ff7684a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1225.65350153249,
+        "Y": 272.316263453334
+      },
+      {
+        "Name": "Watch",
+        "ShowGeometry": true,
+        "Id": "75eeaabfb0fb4312b47ca7840fdd603b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": true,
+        "Excluded": false,
+        "X": 1552.40906332247,
+        "Y": 272.316263453334
+      },
+      {
+        "Name": "Select Model Element",
+        "ShowGeometry": true,
+        "Id": "e432d252bc12412296948de695012bb4",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 250.980175399041,
+        "Y": 272.316263453334
+      }
+    ],
+    "Annotations": [
+      {
+        "Id": "1f356270185c481195f1b1fa57467b7d",
+        "Title": "Custom Node: spring nodesv.210.1.1",
+        "DescriptionText": null,
+        "IsExpanded": true,
+        "WidthAdjustment": 0.0,
+        "HeightAdjustment": 0.0,
+        "Nodes": [],
+        "HasNestedGroups": false,
+        "Left": 1239.65350153249,
+        "Top": 222.316263453334,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676",
+        "PinnedNode": "cb8b3affeae24fe2a1c3b7359ff7684a"
+      }
+    ],
+    "X": -129.40841075210312,
+    "Y": 182.07712418086678,
+    "Zoom": 0.83312748433509065
+  }
+}

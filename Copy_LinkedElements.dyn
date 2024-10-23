@@ -1,0 +1,438 @@
+{
+  "Uuid": "e9666217-53f1-4def-97d6-37dd33796584",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Copy_LinkedElements",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [
+    {
+      "Id": "7639b9e2929a407db2e4394c291c9641",
+      "Name": "Select Model Element",
+      "Type": "selection",
+      "Type2": "hostSelection",
+      "Value": "300190c6-59c1-45c6-89b3-6b2c808aac17-00049820",
+      "Description": "Select a model element from the document.",
+      "SelectedIndex": 0
+    },
+    {
+      "Id": "e6d8f6422a5b43dbbcc3a8f5c7137f11",
+      "Name": "Categories",
+      "Type": "selection",
+      "Type2": "dropdownSelection",
+      "Value": "OST_SpecialityEquipment",
+      "Description": "All built-in categories.",
+      "SelectedIndex": 518
+    },
+    {
+      "Id": "a8b7d0e7a9d541aa8808d3533c3b49fa",
+      "Name": "Element name contains",
+      "Type": "string",
+      "Type2": "string",
+      "Value": "HSS",
+      "Description": "Creates a string.",
+      "SelectedIndex": 0
+    }
+  ],
+  "Outputs": [
+    {
+      "Id": "2da02e781ed0410a992fbf108c8c71dd",
+      "Name": "LinkElement.CopyToActiveDocument",
+      "Type": "unknown",
+      "InitialValue": "",
+      "Description": "Copies the given LinkElements to the active document. This method performs re-hosting of elements where applicable. \r\rVisit bimorph.com/bimorph-nodes for support\n\nLinkElement.CopyToActiveDocument (linkElements: LinkElement[]): Element[]"
+    }
+  ],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.LinkElement.OfCategory@Revit.Elements.Element,Revit.Elements.Category",
+      "Id": "80c6155e27a442e6b6aaea68979dc26e",
+      "Inputs": [
+        {
+          "Id": "8f6547cde27a4c7caf5dfa71fec693af",
+          "Name": "linkInstance",
+          "Description": "Input the Revit Link Instance.\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "c104e4930501445d8ee6f32b3910cc55",
+          "Name": "category",
+          "Description": "Input the LinkElement Category.\n\nCategory",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "5ca1e9366cc04352ab0b0a917f592add",
+          "Name": "LinkElement[]",
+          "Description": "LinkElement[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get LinkElements from a linked Revit document (a LinkInstance) by Category. LinkElements are optimized for use with BimorphNodes Element and BoundingBox nodes and are compatible with all other Dynamo nodes that accept Elements as inputs. \r\rVisit bimorph.com/bimorph-nodes for support\n\nLinkElement.OfCategory (linkInstance: Element, category: Category): LinkElement[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "300190c6-59c1-45c6-89b3-6b2c808aac17-00049820"
+      ],
+      "Id": "7639b9e2929a407db2e4394c291c9641",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "0dcaf4f2e1ef4e20bce562a2103e2d3e",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.Categories, DSRevitNodesUI",
+      "SelectedIndex": 518,
+      "SelectedString": "OST_SpecialityEquipment",
+      "NodeType": "ExtensionNode",
+      "Id": "e6d8f6422a5b43dbbcc3a8f5c7137f11",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "e918c9ebe6f6422a8553a95c973dea2a",
+          "Name": "Category",
+          "Description": "The selected Category.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "All built-in categories."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.LinkElement.CopyToActiveDocument@Revit.LinkElement[]",
+      "Id": "2da02e781ed0410a992fbf108c8c71dd",
+      "Inputs": [
+        {
+          "Id": "23df65e9f9364dbda2a97776f1f44d9a",
+          "Name": "linkElements",
+          "Description": "The list of LinkElements to copy to the active document..\n\nLinkElement[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "ebd4ce0c719d4bc1ae5b2cb97f488a06",
+          "Name": "Element[]",
+          "Description": "Element[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Copies the given LinkElements to the active document. This method performs re-hosting of elements where applicable. \r\rVisit bimorph.com/bimorph-nodes for support\n\nLinkElement.CopyToActiveDocument (linkElements: LinkElement[]): Element[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Rhythm.Revit.ElementFilter.ElementFilter.ByName@Revit.Elements.Element[],string,string,bool",
+      "Id": "cf33978838a5479c8d8437a99f8f35eb",
+      "Inputs": [
+        {
+          "Id": "35c7d9d9d854477384e3e495c68095dd",
+          "Name": "elements",
+          "Description": "The elements to filter.\n\nElement[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "f8f10c30f3894e1aa5c66dff9a34b292",
+          "Name": "value",
+          "Description": "The value to filter by.\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "46342bd9268b4af39e73c8e05865546a",
+          "Name": "filterMethod",
+          "Description": "The method to filter by. This includes Contains, DoesNotContain, StartsWith, DoesNotStartWith, EndsWith, DoesNotEndWith, Equals, DoesNotEqual\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "72da212276c34cf49a01d1da0fbf62e1",
+          "Name": "ignoreCase",
+          "Description": "Ignore the case?\n\nbool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "8ed2d3a83503459fb6cefc82d54f1d65",
+          "Name": "elements",
+          "Description": "The filtered elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Provides element filtering options by name. For the filter method, we are using something called \"LevenshteinDistance\". This was introduced to me here, http://dynamobim.org/fuzzy-string-matching/.\n\nElementFilter.ByName (elements: Element[], value: string, filterMethod: string, ignoreCase: bool = false): Element[]"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "HSS",
+      "Id": "a8b7d0e7a9d541aa8808d3533c3b49fa",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "05901eebf89c4eca9db4d62c9fa5ca57",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a string."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "Contains",
+      "Id": "c8a5e7039ec54cd5b0ca5b04936000cb",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "63742ae7f97243cb958a5ca6b3bd3890",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a string."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "5ca1e9366cc04352ab0b0a917f592add",
+      "End": "35c7d9d9d854477384e3e495c68095dd",
+      "Id": "c032080276c84306aadff8d9f943622a",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "0dcaf4f2e1ef4e20bce562a2103e2d3e",
+      "End": "8f6547cde27a4c7caf5dfa71fec693af",
+      "Id": "24c630fe1d05460b8b4199526500e14b",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "e918c9ebe6f6422a8553a95c973dea2a",
+      "End": "c104e4930501445d8ee6f32b3910cc55",
+      "Id": "751d8ba7bd4e47229f2a69dfbc3cfb47",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "8ed2d3a83503459fb6cefc82d54f1d65",
+      "End": "23df65e9f9364dbda2a97776f1f44d9a",
+      "Id": "5525758c60894d88ac9fe15204151b46",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "05901eebf89c4eca9db4d62c9fa5ca57",
+      "End": "f8f10c30f3894e1aa5c66dff9a34b292",
+      "Id": "891a888d67c34a5c925e5b68325fa860",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "63742ae7f97243cb958a5ca6b3bd3890",
+      "End": "46342bd9268b4af39e73c8e05865546a",
+      "Id": "c2a405a22b56419fb8dd4b6255c92261",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "bimorphNodes",
+      "Version": "5.1.3",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "80c6155e27a442e6b6aaea68979dc26e",
+        "2da02e781ed0410a992fbf108c8c71dd"
+      ]
+    },
+    {
+      "Name": "Rhythm",
+      "Version": "2023.9.1",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "cf33978838a5479c8d8437a99f8f35eb"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.16",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.2.5624",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "LinkElement.OfCategory",
+        "ShowGeometry": true,
+        "Id": "80c6155e27a442e6b6aaea68979dc26e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -616.86116572466653,
+        "Y": 856.97220657425339
+      },
+      {
+        "Name": "Select Model Element",
+        "ShowGeometry": true,
+        "Id": "7639b9e2929a407db2e4394c291c9641",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -939.33366392075629,
+        "Y": 856.97220657425339
+      },
+      {
+        "Name": "Categories",
+        "ShowGeometry": true,
+        "Id": "e6d8f6422a5b43dbbcc3a8f5c7137f11",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -939.33366392075629,
+        "Y": 1035.9821389215977
+      },
+      {
+        "Name": "LinkElement.CopyToActiveDocument",
+        "ShowGeometry": true,
+        "Id": "2da02e781ed0410a992fbf108c8c71dd",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": true,
+        "Excluded": false,
+        "X": 357.49173487216603,
+        "Y": 856.97220657425339
+      },
+      {
+        "Name": "ʳʰʸᵗʰᵐ|ElementFilter.ByName",
+        "ShowGeometry": true,
+        "Id": "cf33978838a5479c8d8437a99f8f35eb",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -6.5056770839647129,
+        "Y": 856.97220657425339
+      },
+      {
+        "Name": "Element name contains",
+        "ShowGeometry": true,
+        "Id": "a8b7d0e7a9d541aa8808d3533c3b49fa",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -315.08333563263392,
+        "Y": 1081.0392522843786
+      },
+      {
+        "Name": "String",
+        "ShowGeometry": true,
+        "Id": "c8a5e7039ec54cd5b0ca5b04936000cb",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -315.08333563263392,
+        "Y": 1209.4213002146498
+      }
+    ],
+    "Annotations": [],
+    "X": 655.15738383322855,
+    "Y": -287.48277048135913,
+    "Zoom": 0.63374025444155435
+  }
+}

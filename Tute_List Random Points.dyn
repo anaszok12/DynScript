@@ -1,0 +1,450 @@
+{
+  "Uuid": "ceb80f3c-4114-40db-8ea7-14039dee5d50",
+  "IsCustomNode": false,
+  "Description": null,
+  "Name": "Tute_List Random Points",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "CoreNodeModels.Input.IntegerSlider, CoreNodeModels",
+      "NodeType": "NumberInputNode",
+      "NumberType": "Integer",
+      "InputValue": 100,
+      "MaximumValue": 100,
+      "MinimumValue": 0,
+      "StepValue": 1,
+      "Id": "69114fc0347e4fcea4371901e8cdf5ff",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "2ec29613e37644729505ef6cd866ce7b",
+          "Name": "",
+          "Description": "Int64",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A slider that produces integer values."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.Math.RandomList@int",
+      "Id": "1151ecd1ee99475fa6f384512cea1169",
+      "Inputs": [
+        {
+          "Id": "9722084cfd424f6d95f2af82bd136858",
+          "Name": "amount",
+          "Description": "Amount of random numbers the result list will contain.\n\nint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "4210a446ecea4e97914dcf867edd50d3",
+          "Name": "number",
+          "Description": "List of random numbers between 0 and 1.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Produces a list containing the given amount of random doubles in the range of [0, 1).\n\nMath.RandomList (amount: int): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.Math.RandomList@int",
+      "Id": "a7d316e09c2d4f8090b17e2948fe0b73",
+      "Inputs": [
+        {
+          "Id": "f3d9765cb7cf4aaa847ba535120df451",
+          "Name": "amount",
+          "Description": "Amount of random numbers the result list will contain.\n\nint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "6d2e650a04ee4777856813d0959161c8",
+          "Name": "number",
+          "Description": "List of random numbers between 0 and 1.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Produces a list containing the given amount of random doubles in the range of [0, 1).\n\nMath.RandomList (amount: int): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Point.ByCoordinates@double,double,double",
+      "Id": "f560fa22105c4d9691fd30f20938ab85",
+      "Inputs": [
+        {
+          "Id": "fae3a64b7afb43898328192fd14ab9d8",
+          "Name": "x",
+          "Description": "double\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "58d93929bf844a6eb0afddbc9c82f718",
+          "Name": "y",
+          "Description": "double\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "67a5bee5085548fb9b457c4b73f9f798",
+          "Name": "z",
+          "Description": "double\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "a411a11fcdef4b099b2cc9848216ea52",
+          "Name": "Point",
+          "Description": "Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Form a Point given 3 cartesian coordinates\n\nPoint.ByCoordinates (x: double = 0, y: double = 0, z: double = 0): Point"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Point.ByCoordinates@double,double,double",
+      "Id": "119db42620524e6293faae35cd8d96e0",
+      "Inputs": [
+        {
+          "Id": "33213c66e2a0413dbfa9452576ba318f",
+          "Name": "x",
+          "Description": "double\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "e1f3bdd0ab94494791b16af734e317bf",
+          "Name": "y",
+          "Description": "double\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "dcf97bff2e4e4aa3b191277b2ea73e88",
+          "Name": "z",
+          "Description": "double\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "d0e4e737e78145efbe9d6d758e432902",
+          "Name": "Point",
+          "Description": "Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Form a Point given 3 cartesian coordinates\n\nPoint.ByCoordinates (x: double = 0, y: double = 0, z: double = 0): Point"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.GetItemAtIndex@var[]..[],int",
+      "Id": "2c31d11152c84ff5b4a8fc07af7d496a",
+      "Inputs": [
+        {
+          "Id": "7c178037a9304f26996c5f9608291316",
+          "Name": "list",
+          "Description": "List to fetch an item from.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "f6d6fcc6f1784044b24c3f0717ad0a9c",
+          "Name": "index",
+          "Description": "Index of the item to be fetched.\n\nint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "00542d6a0a894199863d24b6549bfc3e",
+          "Name": "item",
+          "Description": "Item in the list at the given index.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Returns an item from the given list that's located at the specified index.\n\nList.GetItemAtIndex (list: var[]..[], index: int): var[]..[]"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.IntegerSlider, CoreNodeModels",
+      "NodeType": "NumberInputNode",
+      "NumberType": "Integer",
+      "InputValue": 20,
+      "MaximumValue": 100,
+      "MinimumValue": 0,
+      "StepValue": 1,
+      "Id": "77ab99830ee24a98b3df22aed250e332",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "f92a8cc888de456eb1193c9f58b25681",
+          "Name": "",
+          "Description": "Int64",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A slider that produces integer values."
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "import clr # Imports Ironpython's common language runtime module\r\nclr.AddReference('ProtoGeometry') # Imports DesignScript Dll Assembly\r\nfrom Autodesk.DesignScript.Geometry import Vector # Import all vector class\r\n\r\nrandom_points = IN[0] # Assigns random point to a variable\r\norigin = IN[1] # Assigns origin to a variable\r\n\r\ndistance_and_points = [] # Create an empty list to hold our new list\r\nfor point in random_points: # Iterate through each point\r\n\tvector = Vector.ByTwoPoints(origin, point) # Create vector from PT to origin\r\n\tdistance = vector.Length # store vector length in a variable\r\n\tgroup = [distance, point] # Create a new sublist with distance and the point\r\n\tdistance_and_points.append(group) # append the sublist to our main list\r\n\r\nsorted_points = sorted(distance_and_points) # Sort the nested list\r\nOUT = sorted_points # Output sorted list",
+      "Engine": "IronPython2",
+      "VariableInputPorts": true,
+      "Id": "e317aed281db40ef9d26a63d5afd8fa0",
+      "Inputs": [
+        {
+          "Id": "bf97ed31ebca4851b9238863e11a925e",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "db2dc04180c143769df6984edf2127fb",
+          "Name": "IN[1]",
+          "Description": "Input #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "ea9bd96bdcf340f8ad900bcf6aa88de2",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded Python script."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "2ec29613e37644729505ef6cd866ce7b",
+      "End": "9722084cfd424f6d95f2af82bd136858",
+      "Id": "35555c3ff23941fd868b761ee95ea4f3"
+    },
+    {
+      "Start": "2ec29613e37644729505ef6cd866ce7b",
+      "End": "f3d9765cb7cf4aaa847ba535120df451",
+      "Id": "10219fbbde694b279db5216c2bfe37a5"
+    },
+    {
+      "Start": "4210a446ecea4e97914dcf867edd50d3",
+      "End": "fae3a64b7afb43898328192fd14ab9d8",
+      "Id": "c133705229ac49a492d57681762c8df1"
+    },
+    {
+      "Start": "6d2e650a04ee4777856813d0959161c8",
+      "End": "58d93929bf844a6eb0afddbc9c82f718",
+      "Id": "7cddf31556844bb6b2d5372d79ef74f3"
+    },
+    {
+      "Start": "a411a11fcdef4b099b2cc9848216ea52",
+      "End": "7c178037a9304f26996c5f9608291316",
+      "Id": "24eb4b5d93884f29b19915952535a3b6"
+    },
+    {
+      "Start": "a411a11fcdef4b099b2cc9848216ea52",
+      "End": "bf97ed31ebca4851b9238863e11a925e",
+      "Id": "bd7ae7d2774d4997a4759954042d80ee"
+    },
+    {
+      "Start": "d0e4e737e78145efbe9d6d758e432902",
+      "End": "db2dc04180c143769df6984edf2127fb",
+      "Id": "7bd9fd24db6744a3987338ec999e66f0"
+    },
+    {
+      "Start": "f92a8cc888de456eb1193c9f58b25681",
+      "End": "f6d6fcc6f1784044b24c3f0717ad0a9c",
+      "Id": "5874aa2697914323a53cb88910f10452"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.10.1.3976",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -11.924959182739258,
+      "EyeY": 18.502040863037109,
+      "EyeZ": 25.470645904541016,
+      "LookX": 6.9249591827392578,
+      "LookY": -7.5020408630371094,
+      "LookZ": -33.470645904541016,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Integer Slider",
+        "Id": "69114fc0347e4fcea4371901e8cdf5ff",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -31.5,
+        "Y": 277.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Math.RandomList",
+        "Id": "1151ecd1ee99475fa6f384512cea1169",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 322.5,
+        "Y": 274.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Math.RandomList",
+        "Id": "a7d316e09c2d4f8090b17e2948fe0b73",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 325.5,
+        "Y": 391.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Point.ByCoordinates",
+        "Id": "f560fa22105c4d9691fd30f20938ab85",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 614.231019675974,
+        "Y": 264.85234994487939
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Point.ByCoordinates",
+        "Id": "119db42620524e6293faae35cd8d96e0",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 628.6803338898967,
+        "Y": 578.51056762626456
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "List.GetItemAtIndex",
+        "Id": "2c31d11152c84ff5b4a8fc07af7d496a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1016.7311437927182,
+        "Y": 265.87089691836388
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Integer Slider",
+        "Id": "77ab99830ee24a98b3df22aed250e332",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 615.29170257036844,
+        "Y": 186.47180658849132
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Python Script",
+        "Id": "e317aed281db40ef9d26a63d5afd8fa0",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1025.5617509055292,
+        "Y": 582.47382897745581
+      }
+    ],
+    "Annotations": [],
+    "X": -644.96323430078291,
+    "Y": -294.8454681791581,
+    "Zoom": 0.78036582535938492
+  }
+}

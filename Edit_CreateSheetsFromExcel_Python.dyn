@@ -1,0 +1,597 @@
+{
+  "Uuid": "04f6819c-4a37-455e-80b2-5222bf80f9ef",
+  "IsCustomNode": false,
+  "Description": null,
+  "Name": "Edit_CreateSheetsFromExcel_Python",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "#checkcheckrockrock\r\n# copyright Anas\r\n\r\nimport clr\r\n# import clr module for Python to interact with .NET\r\n\r\nclr.AddReference(\"RevitNodes\")\r\nimport Revit\r\nclr.ImportExtensions(Revit.Elements)\r\n# add reference to RevitNodes library then import the Revit module then import extensions from Revit.Elements. Allow us to use Revit's elements and their method and properties\r\n\r\nclr.AddReference(\"RevitServices\")\r\nimport RevitServices\r\nfrom RevitServices.Persistence import DocumentManager\r\nfrom RevitServices.Transactions import TransactionManager\r\n# add reference to RevitServices library then import RevitServices module then import DocumentManager and TransactionManager. DocumentManager manage current Revit document and TransactionManager manage changes in the Revit document.\r\n\r\nclr.AddReference(\"RevitAPI\")\r\nimport Autodesk\r\nfrom Autodesk.Revit.DB import *\r\n# add reference to RevitAPI library, import the Autodesk module then import everythin from Autodesk.Revit.DB. Allows us to use Revit's API\r\n\r\ndoc = DocumentManager.Instance.CurrentDBDocument\r\n# gets the current open Revit document\r\n\r\ndef inputToList(input):\r\n\tresult = input if isinstance (input, list) else [input]\r\n\treturn result\r\n#converts all input to list, no changes to the input already list\r\n\r\nsheets = \r\nFilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Sheets).WhereElementIsNotElementType().ToElements()\r\n# collect all sheets in  the current Revit document - exclude element types - convert the collection to a list of elements\r\n\r\nextSheetNumbers = [s.SheetNumber for s in sheets]\r\n# list of all sheet numbers of collected sheets above\r\n\r\ntitleblock_dyn = IN[0] #specify titleblock family in Dynamo nodes\r\nnewSheetName = inputToList (IN[1]) # sheet name input as list\r\nnewSheetNumbers = inputToList (IN[2]) # sheet number inpput as list\r\nnewSheetPlaceholder = IN[3] # boolean, whether the new sheets should be placeholders\r\n\r\nsheetNumberExist = [n in extSheetNumbers for n in newSheetNumbers]\r\n# check if each number newSheetNumbers already exists in extSheetNumbers, also create list of booleans where True if exists and False if doesn't\r\n\r\nsheets, success = [],[]\r\n# initialize two empty list \r\n\r\ntitleblock_rvt = UnwrapElement(titleblock_dyn).Id\r\n# unwrap titleblock from dynamo and obtain its Id\r\n\r\nTransactionManager.Instance.EnsureInTransaction(doc)\r\n# start transaction\r\n\r\nfor nShtName, nShtNum, nShtPlchldr in zip(newSheetName, newSheetNumbers, sheetNumberExist)\r\n\tif nShtPlchldr == False:\r\n\t\tif newSheetPlaceholder = True:\r\n\t\t\tplaceholder = ViewSheet.CreatePlaceholder(doc)\r\n\t\telse:\r\n\t\t\tplaceholder = ViewSheet.Create(doc, titleblock_rvt)\r\n\t\tplaceholder.SheetNumber = nShtNum\r\n\t\tplaceholder.Name = nShtName\r\n\t\tsheets.append(placeholder.ToDSType(False))\r\n\t\tsuccess.append(True)\r\n\telse:\r\n\t\tsheets.append(None)\r\n\t\tsuccess.append(False)\r\n\t\t\r\nTransactionManager.Instance.TransactionTaskDone()\r\n# closing the transaction\r\n\r\nOUT = [sheets, success]\r\n\r\n",
+      "Engine": "IronPython2",
+      "VariableInputPorts": true,
+      "Id": "d5b7050320b64470871527f508e2627e",
+      "Inputs": [
+        {
+          "Id": "4d5f3ff6f77547bb9e5ef23cb7f97d10",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "a92afb896d2b4493a16a2cdba5535c99",
+          "Name": "IN[1]",
+          "Description": "Input #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "0c79b5192caf4618ab1caa04d9ece35c",
+          "Name": "IN[2]",
+          "Description": "Input #2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "8b7150a7c6094fca80779ea7ea5915de",
+          "Name": "IN[3]",
+          "Description": "Input #3",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "fcd21a65f704446984c7e2ebd009b11d",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded Python script."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "[\"Key Plan\", \"Fdtn Plan\", \"Sector Plan\"];\n[\"E01\",\"E02\",\"E03\"];",
+      "Id": "af07a8741bbe472ba04043a18d5aebe5",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "af450131b4c94540912cccfa80a3bbb7",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "eb519cc6399443eabd95992ae4112c28",
+          "Name": "",
+          "Description": "Value of expression at line 2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.FamilyTypes, DSRevitNodesUI",
+      "SelectedIndex": 14,
+      "SelectedString": "D 22 x 34 Horizontal:D 22 x 34 Horizontal",
+      "NodeType": "ExtensionNode",
+      "Id": "9e8c14cdfbf544c19f8dbdd42cd367a4",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "3d514cdbbf0b47d2bbe1e8a9d61dde52",
+          "Name": "Family Type",
+          "Description": "The selected Family Type",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "All family types available in the document."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "f78a7497-e321-402e-b4a0-4f4623cfe19f",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "fe166c522b3d4a8ca100cd1d2ca7d9da",
+      "Inputs": [
+        {
+          "Id": "25a3fcd5be5645d1881b8263e0983cbb",
+          "Name": "ttb_type",
+          "Description": "Titleblock as a family type.\n\nNote this node only applies one\ntype to all sheets currently.\n\nFamilyType",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "201cb3032da64774bed865838289c9ad",
+          "Name": "names",
+          "Description": "Sheet names (strings).\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "95c8ccf506ce42e0a5559cae9e6ba1f3",
+          "Name": "numbers",
+          "Description": "Sheet numbers (strings).\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "bbc68fc8d9014701858a73a91afc0741",
+          "Name": "asph",
+          "Description": "Are they placeholders?\n\nbool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "57a78f7f8da44601b732d071e07349d5",
+          "Name": "sheets",
+          "Description": "Sheets created.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "59ce1239be5d4b71803b32bbce43c697",
+          "Name": "success",
+          "Description": "Was the process successful.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Creates Revit sheets based on a list of names, numbers and a single Titleblock type."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
+      "NodeType": "BooleanInputNode",
+      "InputValue": false,
+      "Id": "26ad874455ad46a1ab2e97954e948044",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "c0a721a8c2a04b59a56dd3fce6827c6f",
+          "Name": "",
+          "Description": "Boolean",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Selection between a true and false."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "[\"Key Plan\", \"Fdtn Plan\", \"Sector Plan\"];\n[\"E01\",\"E02\",\"E03\"];",
+      "Id": "e5191d282ee54e49ad44032f3a4c7224",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "20b450cfbf4b4da184c7bc9eaad51fc7",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "ff78efcdce654c42b3185b23f1caeeb7",
+          "Name": "",
+          "Description": "Value of expression at line 2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.FamilyTypes, DSRevitNodesUI",
+      "SelectedIndex": 14,
+      "SelectedString": "D 22 x 34 Horizontal:D 22 x 34 Horizontal",
+      "NodeType": "ExtensionNode",
+      "Id": "e9ceebf1c56b44d1a2eee0d3d21983ce",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "3d513b6869fd43f58c3884fa0267b9a0",
+          "Name": "Family Type",
+          "Description": "The selected Family Type",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "All family types available in the document."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
+      "NodeType": "BooleanInputNode",
+      "InputValue": false,
+      "Id": "85cc9872dcc1472aaacd38a3eca4f5b3",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "7acc5ead12cb4bf4a3e46538d3ecd436",
+          "Name": "",
+          "Description": "Boolean",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Selection between a true and false."
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "#Copyright Anas 2024\r\n#Use at you own risk\r\n\r\nimport clr\r\n# import clr module for Python to interact with .NET\r\n\r\nclr.AddReference(\"RevitNodes\")\r\nimport Revit\r\nclr.ImportExtensions(Revit.Elements)\r\n# add reference to RevitNodes library then import the Revit module then import extensions from Revit.Elements. Allow us to use Revit's elements and their method and properties\r\n\r\nclr.AddReference(\"RevitServices\")\r\nimport RevitServices\r\nfrom RevitServices.Persistence import DocumentManager\r\nfrom RevitServices.Transactions import TransactionManager\r\n# add reference to RevitServices library then import RevitServices module then import DocumentManager and TransactionManager. DocumentManager manage current Revit document and TransactionManager manage changes in the Revit document.\r\n\r\nclr.AddReference(\"RevitAPI\")\r\nimport Autodesk\r\nfrom Autodesk.Revit.DB import *\r\n# add reference to RevitAPI library, import the Autodesk module then import everythin from Autodesk.Revit.DB. Allows us to use Revit's API\r\n\r\ndoc = DocumentManager.Instance.CurrentDBDocument\r\n# gets the current open Revit document\r\n\r\ndef inputToList(input):\r\n    result = input if isinstance (input, list) else [input]\r\n    return result\r\n#converts all input to list, no changes to the input already list\r\n\r\nsheets = FilteredElementCollector(doc).OfCategory(BuiltInCategory.OST_Sheets).WhereElementIsNotElementType().ToElements()\r\n# collect all sheets in  the current Revit document - exclude element types - convert the collection to a list of elements\r\n\r\n# Initialize an empty list\r\nextSheetNumbers = []\r\n\r\n# Loop through each sheet in the list of sheets\r\nfor s in sheets:\r\n    # Get the sheet number of the current sheet\r\n    sheet_number = s.SheetNumber\r\n    \r\n    # Append the sheet number to the list\r\n    extSheetNumbers.append(sheet_number)\r\n\r\ntitleblock_dyn = IN[0] #specify titleblock family in Dynamo nodes\r\nnewSheetName = inputToList (IN[1]) # sheet name input as list\r\nnewSheetNumbers = inputToList (IN[2]) # sheet number inpput as list\r\nnewSheetPlaceholder = IN[3] # boolean, whether the new sheets should be placeholders\r\n\r\nsheetNumberExist = [n in extSheetNumbers for n in newSheetNumbers]\r\n# check if each number newSheetNumbers already exists in extSheetNumbers, also create list of booleans where True if exists and False if doesn't\r\n\r\nsheets, success = [],[]\r\n# initialize two empty list \r\n\r\ntitleblock_rvt = UnwrapElement(titleblock_dyn).Id\r\n# unwrap titleblock from dynamo and obtain its Id\r\n\r\nTransactionManager.Instance.EnsureInTransaction(doc)\r\n# start transaction\r\n\r\n# Start the loop\r\nfor i in range(len(newSheetName)):\r\n    # Get the current sheet name, number, and existence check\r\n    nShtName = newSheetName[i]\r\n    nShtNum = newSheetNumbers[i]\r\n    nShtPlchldr = sheetNumberExist[i]\r\n\r\n    # Check if the sheet number doesn't exist\r\n    if nShtPlchldr == False:\r\n        # Check if the new sheet should be a placeholder\r\n        if newSheetPlaceholder == True:\r\n            # Create a placeholder sheet\r\n            placeholder = ViewSheet.CreatePlaceholder(doc)\r\n        else:\r\n            # Create a regular sheet with the specified title block\r\n            placeholder = ViewSheet.Create(doc, titleblock_rvt)\r\n        \r\n        # Set the sheet number and name\r\n        placeholder.SheetNumber = nShtNum\r\n        placeholder.Name = nShtName\r\n        \r\n        # Convert the sheet to a Dynamo type and append it to the sheets list\r\n        sheets.append(placeholder.ToDSType(False))\r\n        \r\n        # Append True to the success list\r\n        success.append(True)\r\n    else:\r\n        # If the sheet number exists, append None to the sheets list\r\n        sheets.append(None)\r\n        \r\n        # Append False to the success list\r\n        success.append(False)\r\n\r\nTransactionManager.Instance.TransactionTaskDone()\r\n# closing the transaction\r\n\r\nOUT = [sheets, success]\r\n# set the output for Dynamo. It's a list containing the sheets and success lists. The sheets list contains the new sheets (or None if the sheet number already existed), and the success list contains True for each successful creation and False for each failed creation.\r\n",
+      "Engine": "IronPython2",
+      "VariableInputPorts": true,
+      "Id": "4636eb3c96af40e9bb477208f50326a1",
+      "Inputs": [
+        {
+          "Id": "23235ecd2e4d4e528754777b11592a2d",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "7bd683dfefbf4921ad24fe4f5e5827ef",
+          "Name": "IN[1]",
+          "Description": "Input #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "9e09f71e9509426aa536d5bd97e8950a",
+          "Name": "IN[2]",
+          "Description": "Input #2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "053a4b7114794497b5b71deb5d63774a",
+          "Name": "IN[3]",
+          "Description": "Input #3",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "722f649cb1264eb5bcf5251c3cc15ac7",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded Python script."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "[\"Key Plan\", \"Fdtn Plan\", \"Sector Plan\"];\n[\"E01\",\"E02\",\"E03\"];",
+      "Id": "198f7d3675dc4037bc4eee87b0b5d326",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "3f304533ca27484899d4064629fa769b",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "a5979102f5c4460b8dee1c29ff3192b4",
+          "Name": "",
+          "Description": "Value of expression at line 2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.FamilyTypes, DSRevitNodesUI",
+      "SelectedIndex": 14,
+      "SelectedString": "D 22 x 34 Horizontal:D 22 x 34 Horizontal",
+      "NodeType": "ExtensionNode",
+      "Id": "a452a71dd3d841d489fd2713a245dcd9",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "000cf911c105446e9df100bc274de664",
+          "Name": "Family Type",
+          "Description": "The selected Family Type",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "All family types available in the document."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "af450131b4c94540912cccfa80a3bbb7",
+      "End": "a92afb896d2b4493a16a2cdba5535c99",
+      "Id": "0578b4ffa57a453b888dac7daf3739ca"
+    },
+    {
+      "Start": "eb519cc6399443eabd95992ae4112c28",
+      "End": "0c79b5192caf4618ab1caa04d9ece35c",
+      "Id": "5b9a4093df55431196c7cdbe796267b3"
+    },
+    {
+      "Start": "3d514cdbbf0b47d2bbe1e8a9d61dde52",
+      "End": "4d5f3ff6f77547bb9e5ef23cb7f97d10",
+      "Id": "3607f34c8b7744a28c504d7397877af5"
+    },
+    {
+      "Start": "c0a721a8c2a04b59a56dd3fce6827c6f",
+      "End": "8b7150a7c6094fca80779ea7ea5915de",
+      "Id": "6ec14022c86640daaaec8dcbfe0b8d03"
+    },
+    {
+      "Start": "20b450cfbf4b4da184c7bc9eaad51fc7",
+      "End": "7bd683dfefbf4921ad24fe4f5e5827ef",
+      "Id": "c6d6931b91574e67a8f93cbf4772c860"
+    },
+    {
+      "Start": "ff78efcdce654c42b3185b23f1caeeb7",
+      "End": "9e09f71e9509426aa536d5bd97e8950a",
+      "Id": "cef78bed748740aab6ab7b7bfd9bd410"
+    },
+    {
+      "Start": "3d513b6869fd43f58c3884fa0267b9a0",
+      "End": "23235ecd2e4d4e528754777b11592a2d",
+      "Id": "80e71cf13204443bb7b5efcea37c0f21"
+    },
+    {
+      "Start": "7acc5ead12cb4bf4a3e46538d3ecd436",
+      "End": "053a4b7114794497b5b71deb5d63774a",
+      "Id": "f21487cb108a4846872ce23c68511186"
+    },
+    {
+      "Start": "3f304533ca27484899d4064629fa769b",
+      "End": "201cb3032da64774bed865838289c9ad",
+      "Id": "22829206065644c6b66b97802d58ce4d"
+    },
+    {
+      "Start": "a5979102f5c4460b8dee1c29ff3192b4",
+      "End": "95c8ccf506ce42e0a5559cae9e6ba1f3",
+      "Id": "3e44ec3b21204e74987ec4c73bfad28f"
+    },
+    {
+      "Start": "000cf911c105446e9df100bc274de664",
+      "End": "25a3fcd5be5645d1881b8263e0983cbb",
+      "Id": "e9cf90a332714d9294dd399edd015270"
+    }
+  ],
+  "Dependencies": [
+    "f78a7497-e321-402e-b4a0-4f4623cfe19f"
+  ],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "Crumple",
+      "Version": "2022.5.27",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "fe166c522b3d4a8ca100cd1d2ca7d9da"
+      ]
+    }
+  ],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.10.1.3976",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Python Script",
+        "Id": "d5b7050320b64470871527f508e2627e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 365.69900269682319,
+        "Y": 331.80099730317687
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "af07a8741bbe472ba04043a18d5aebe5",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -132.0,
+        "Y": 315.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Family Types",
+        "Id": "9e8c14cdfbf544c19f8dbdd42cd367a4",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -90.903111392839577,
+        "Y": 221.34431170159155
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "© Sheets.Create",
+        "Id": "fe166c522b3d4a8ca100cd1d2ca7d9da",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 427.69496351660536,
+        "Y": -47.390188025192231
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Boolean",
+        "Id": "26ad874455ad46a1ab2e97954e948044",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 123.74852125727517,
+        "Y": 503.84740285504876
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "e5191d282ee54e49ad44032f3a4c7224",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -113.46297467105944,
+        "Y": 720.80965536525991
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Family Types",
+        "Id": "e9ceebf1c56b44d1a2eee0d3d21983ce",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -69.125200481807269,
+        "Y": 626.1094571064998
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Boolean",
+        "Id": "85cc9872dcc1472aaacd38a3eca4f5b3",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 127.08666408150691,
+        "Y": 850.12810174353331
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Python Script",
+        "Id": "4636eb3c96af40e9bb477208f50326a1",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 369.03714552105487,
+        "Y": 678.08169619166142
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "198f7d3675dc4037bc4eee87b0b5d326",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -126.0733150324391,
+        "Y": 23.84829824875419
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Family Types",
+        "Id": "a452a71dd3d841d489fd2713a245dcd9",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -67.691443541046624,
+        "Y": -79.5488439770682
+      }
+    ],
+    "Annotations": [],
+    "X": 75.7647365071071,
+    "Y": -274.53859112954717,
+    "Zoom": 0.79472540593284313
+  }
+}

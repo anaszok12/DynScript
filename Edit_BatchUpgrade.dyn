@@ -1,0 +1,847 @@
+{
+  "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Edit_BatchUpgrade",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [
+    {
+      "Id": "942a5e3096b84e06960f06dbd5e74575",
+      "Name": "Directory Path",
+      "Type": "string",
+      "Type2": "string",
+      "Value": "C:\\Users\\PC2\\Desktop\\Anas\\Revit\\Families\\R23",
+      "Description": "Allows you to select a directory on the system to get its path",
+      "SelectedIndex": 0
+    }
+  ],
+  "Outputs": [
+    {
+      "Id": "7a458911aab4480ea7f768c1dbd8970d",
+      "Name": "Watch",
+      "Type": "unknown",
+      "InitialValue": "",
+      "Description": "Visualize the node's output"
+    }
+  ],
+  "Nodes": [
+    {
+      "ConcreteType": "CoreNodeModels.Input.Directory, CoreNodeModels",
+      "HintPath": "C:\\Users\\PC2\\Desktop\\Anas\\Revit\\Families\\R23",
+      "InputValue": "C:\\Users\\PC2\\Desktop\\Anas\\Revit\\Families\\R23",
+      "NodeType": "ExtensionNode",
+      "Id": "942a5e3096b84e06960f06dbd5e74575",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "2af14e71480d4005bcf1c1f28a27ac27",
+          "Name": "",
+          "Description": "Directory",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows you to select a directory on the system to get its path"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "a32b54a3-50b7-4246-b937-030bad2c9f35",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "7c7351d43272443f987edf09ec846f4f",
+      "Inputs": [
+        {
+          "Id": "2314c4b7a0fe4b5d8d47538b0c53a0d6",
+          "Name": "directoryPath",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "29231cce065a47078d7243e914ebc120",
+          "Name": "searchString",
+          "Description": "string\nDefault value : \"\"",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "1096ae5055004e5e8f19e8fcda3a6d91",
+          "Name": "deepSearch",
+          "Description": "bool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "9c99f7ca69bf4bb585cf1b283420707f",
+          "Name": "filePaths",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Be aware there is an OOTB node that can do this, but I wanted to add this to the package so others can see how to use a Python method as a starter block in other scripts."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Rhythm.Revit.Application.Applications.OpenDocumentFile@string,bool,bool,bool,bool,bool",
+      "Id": "72ebb5accbde4e2ab1a7efdc1f2f44d4",
+      "Inputs": [
+        {
+          "Id": "6eab6a89df444942bf5ab90ac3030ccc",
+          "Name": "filePath",
+          "Description": "The file to obtain document from.\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "0e60d109e9ac4770bc9d01fee1019288",
+          "Name": "audit",
+          "Description": "Choose whether or not to audit the file upon opening. (Will run slower with this)\n\nbool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "321174f5ec1340599d3220ae38a2fa1d",
+          "Name": "detachFromCentral",
+          "Description": "Choose whether or not to detach from central upon opening. Only for RVT files.\n\nbool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "d797bef99e534f7b9581d9a24d7ec2bd",
+          "Name": "preserveWorksets",
+          "Description": "Choose whether or not to preserve worksets upon opening. Only for RVT files.\n\nbool\nDefault value : true",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "be2d3d19b38f421392d0837cb90a9fb8",
+          "Name": "closeAllWorksets",
+          "Description": "Choose if you want to close all worksets upon opening. Defaulted to false.\n\nbool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "6e4f74492a5a455e95f4f044f8b7e43d",
+          "Name": "suppressWarnings",
+          "Description": "bool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "215925d9355c462d8d1af8efef5da020",
+          "Name": "document",
+          "Description": "The document object. If the file path is blank this returns the current document.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "This node will open the given file in the background.\n\nApplications.OpenDocumentFile (filePath: string, audit: bool = false, detachFromCentral: bool = false, preserveWorksets: bool = true, closeAllWorksets: bool = false, suppressWarnings: bool = false): Document"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
+      "NodeType": "BooleanInputNode",
+      "InputValue": true,
+      "Id": "c6712e24a0bb43d299a388fab28a14dd",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "866c1d47e9ca4ed08109cc7bec398d31",
+          "Name": "",
+          "Description": "Boolean",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Selection between a true and false."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Rhythm.Revit.Application.Applications.CloseDocument@var,bool",
+      "Id": "7ba5c7f43c534e39ba19f8e989e96966",
+      "Inputs": [
+        {
+          "Id": "6a785b9642b344aa9e7be49fbfbb3530",
+          "Name": "document",
+          "Description": "The background opened document object, (preferably this is the title as obtained with Applications.OpenDocumentFile from Rhythm).\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "4e7557e09d1245b8951c78452a0faad9",
+          "Name": "save",
+          "Description": "Do you want to save?\n\nbool",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "cb18063325a44ae3a78b58d76f3d60d0",
+          "Name": "result",
+          "Description": "Did it work?",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "This node will close the given document with the option to save.\n\nApplications.CloseDocument (document: var, save: bool): string"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "7a458911aab4480ea7f768c1dbd8970d",
+      "Inputs": [
+        {
+          "Id": "7e056ba4277549bc93fef7a7a287dc7e",
+          "Name": "",
+          "Description": "Node to evaluate.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "76859184120a49c1bcf32e36efce2872",
+          "Name": "",
+          "Description": "Watch contents.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Visualize the node's output"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
+      "NodeType": "BooleanInputNode",
+      "InputValue": true,
+      "Id": "a75b4665804b488ca38654520630367c",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "0a8d0f8c5903403684020099b548e630",
+          "Name": "",
+          "Description": "Boolean",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Selection between a true and false."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "2af14e71480d4005bcf1c1f28a27ac27",
+      "End": "2314c4b7a0fe4b5d8d47538b0c53a0d6",
+      "Id": "b9aefad1e1b74de2b432d3f4d47bcb71",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "9c99f7ca69bf4bb585cf1b283420707f",
+      "End": "6eab6a89df444942bf5ab90ac3030ccc",
+      "Id": "edc91a4b899a48f1a1d05dfbec45c04a",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "215925d9355c462d8d1af8efef5da020",
+      "End": "6a785b9642b344aa9e7be49fbfbb3530",
+      "Id": "b94925e7a43c4e108c215ec1dd957902",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "866c1d47e9ca4ed08109cc7bec398d31",
+      "End": "4e7557e09d1245b8951c78452a0faad9",
+      "Id": "fe79e4882e274e93977368a90f8ae6b5",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "cb18063325a44ae3a78b58d76f3d60d0",
+      "End": "7e056ba4277549bc93fef7a7a287dc7e",
+      "Id": "3f92120178b944e4b3db8aa0b81dc858",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "0a8d0f8c5903403684020099b548e630",
+      "End": "1096ae5055004e5e8f19e8fcda3a6d91",
+      "Id": "594849a240904eb489fb1fafae25fa91",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [
+    "a32b54a3-50b7-4246-b937-030bad2c9f35"
+  ],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "Crumple",
+      "Version": "2022.5.27",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "7c7351d43272443f987edf09ec846f4f"
+      ]
+    },
+    {
+      "Name": "Rhythm",
+      "Version": "2023.9.1",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "72ebb5accbde4e2ab1a7efdc1f2f44d4",
+        "7ba5c7f43c534e39ba19f8e989e96966"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.16",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {}
+    }
+  ],
+  "Author": "None provided",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.2.5624",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -91.602752685546875,
+      "EyeY": 103.73907470703125,
+      "EyeZ": 165.69505310058594,
+      "LookX": 95.1541519165039,
+      "LookY": -50.598861694335938,
+      "LookZ": -181.32369995117188,
+      "UpX": 0.01216384582221508,
+      "UpY": 0.99965733289718628,
+      "UpZ": -0.023179160431027412
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Directory Path",
+        "ShowGeometry": true,
+        "Id": "942a5e3096b84e06960f06dbd5e74575",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 40.328883184214874,
+        "Y": 556.59790280953519
+      },
+      {
+        "Name": "© Windows.DirectoryContents",
+        "ShowGeometry": true,
+        "Id": "7c7351d43272443f987edf09ec846f4f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 454.64551693474323,
+        "Y": 556.59790280953519
+      },
+      {
+        "Name": "Rhythm_ʳʰʸᵗʰᵐ|Applications.OpenDocumentFile",
+        "ShowGeometry": true,
+        "Id": "72ebb5accbde4e2ab1a7efdc1f2f44d4",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 832.33042424255791,
+        "Y": 316.24485797028774
+      },
+      {
+        "Name": "Boolean",
+        "ShowGeometry": true,
+        "Id": "c6712e24a0bb43d299a388fab28a14dd",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 886.897061449306,
+        "Y": 768.59790280953519
+      },
+      {
+        "Name": "Rhythm_ʳʰʸᵗʰᵐ|Applications.CloseDocument",
+        "ShowGeometry": true,
+        "Id": "7ba5c7f43c534e39ba19f8e989e96966",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1320.783674455118,
+        "Y": 634.23947804073714
+      },
+      {
+        "Name": "Watch",
+        "ShowGeometry": true,
+        "Id": "7a458911aab4480ea7f768c1dbd8970d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": true,
+        "Excluded": false,
+        "X": 1742.4438304956209,
+        "Y": 644.01302107542688
+      },
+      {
+        "Name": "Boolean",
+        "ShowGeometry": true,
+        "Id": "a75b4665804b488ca38654520630367c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 211.11406850863733,
+        "Y": 769.36931473245636
+      }
+    ],
+    "Annotations": [
+      {
+        "Id": "b2f8ad04f55c42fba5ff036ae6adc27f",
+        "Title": "Information collection and filtering",
+        "DescriptionText": null,
+        "IsExpanded": true,
+        "WidthAdjustment": 0.0,
+        "HeightAdjustment": 0.0,
+        "Nodes": [
+          "5c8cc0cdde514140b1875318c75d4282",
+          "144965ee89a24a7a9690e98c6ef30d95"
+        ],
+        "HasNestedGroups": false,
+        "Left": 415.52606747766384,
+        "Top": -14.829619296544621,
+        "Width": 354.49471932951275,
+        "Height": 209.0,
+        "FontSize": 36.0,
+        "InitialTop": 145.17038070345538,
+        "InitialHeight": 145.0,
+        "TextblockHeight": 150.0,
+        "Background": "#FFD4B6DB"
+      },
+      {
+        "Id": "30e839ca80c04f12b85be15506ba9989",
+        "Title": "User Selection, settings and Credits",
+        "DescriptionText": null,
+        "IsExpanded": true,
+        "WidthAdjustment": 0.0,
+        "HeightAdjustment": 0.0,
+        "Nodes": [
+          "fcf5001e55bf4a6c8e09dbf4b5ac7640",
+          "3853237e981e4966b3631c0a332a8111"
+        ],
+        "HasNestedGroups": false,
+        "Left": 45.763340135564988,
+        "Top": 29.170380703455379,
+        "Width": 354.4947193295128,
+        "Height": 165.0,
+        "FontSize": 36.0,
+        "InitialTop": 145.17038070345538,
+        "InitialHeight": 145.0,
+        "TextblockHeight": 106.0,
+        "Background": "#FF48B9FF"
+      },
+      {
+        "Id": "a40ea8dc2657448d866b640e6d5cee37",
+        "Title": "Data processing and output",
+        "DescriptionText": null,
+        "IsExpanded": true,
+        "WidthAdjustment": 0.0,
+        "HeightAdjustment": 0.0,
+        "Nodes": [
+          "ac08b3a02f28418d96beb94b5673bd75",
+          "4cc1cbe7f6144356b1ecdb524ebd644e"
+        ],
+        "HasNestedGroups": false,
+        "Left": 787.90699976751262,
+        "Top": 29.170380703455379,
+        "Width": 357.97515057410487,
+        "Height": 165.0,
+        "FontSize": 36.0,
+        "InitialTop": 145.17038070345538,
+        "InitialHeight": 145.0,
+        "TextblockHeight": 106.0,
+        "Background": "#FFB5B5B5"
+      },
+      {
+        "Id": "92eaa1b3bd91447b8830700f59396daa",
+        "Title": "Create elements in Dynamo",
+        "DescriptionText": null,
+        "IsExpanded": true,
+        "WidthAdjustment": 0.0,
+        "HeightAdjustment": 0.0,
+        "Nodes": [
+          "879bcb4428164c658054a4368cf6a558",
+          "bf3b06ad77ab4a1daf7d208d203ec03f"
+        ],
+        "HasNestedGroups": false,
+        "Left": 1162.4133826598404,
+        "Top": 29.170380703455379,
+        "Width": 356.35805490902,
+        "Height": 165.0,
+        "FontSize": 36.0,
+        "InitialTop": 145.17038070345538,
+        "InitialHeight": 145.0,
+        "TextblockHeight": 106.0,
+        "Background": "#FFFFB8D8"
+      },
+      {
+        "Id": "0a8051b81f0142b79762e03615d52f97",
+        "Title": "Create elements in Revit",
+        "DescriptionText": null,
+        "IsExpanded": true,
+        "WidthAdjustment": 0.0,
+        "HeightAdjustment": 0.0,
+        "Nodes": [
+          "1f3380a493584398a61d70a0c1d595b8",
+          "986f792abb464c749fc9c454def76d5d"
+        ],
+        "HasNestedGroups": false,
+        "Left": 1535.6549490440932,
+        "Top": 29.170380703455379,
+        "Width": 356.35805490902,
+        "Height": 165.0,
+        "FontSize": 36.0,
+        "InitialTop": 145.17038070345538,
+        "InitialHeight": 145.0,
+        "TextblockHeight": 106.0,
+        "Background": "#FFE8F7AD"
+      },
+      {
+        "Id": "3494f0aef584408c8cee7c676472c4cb",
+        "Title": "Writing Data",
+        "DescriptionText": null,
+        "IsExpanded": true,
+        "WidthAdjustment": 0.0,
+        "HeightAdjustment": 0.0,
+        "Nodes": [
+          "e4d5b1704af84150899f85b011ba38f7",
+          "0a3d86b0d48e4aa8add19835d70b7a6f"
+        ],
+        "HasNestedGroups": false,
+        "Left": 1913.1851492563799,
+        "Top": 29.115295994273851,
+        "Width": 352.19349962238471,
+        "Height": 165.05508470918153,
+        "FontSize": 36.0,
+        "InitialTop": 102.11529599427385,
+        "InitialHeight": 188.05508470918153,
+        "TextblockHeight": 63.0,
+        "Background": "#FFFFC999"
+      },
+      {
+        "Id": "5c8cc0cdde514140b1875318c75d4282",
+        "Title": "",
+        "DescriptionText": null,
+        "IsExpanded": true,
+        "WidthAdjustment": 0.0,
+        "HeightAdjustment": 0.0,
+        "Nodes": [],
+        "HasNestedGroups": false,
+        "Left": 425.52606747766384,
+        "Top": 153.17038070345538,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "144965ee89a24a7a9690e98c6ef30d95",
+        "Title": "",
+        "DescriptionText": null,
+        "IsExpanded": true,
+        "WidthAdjustment": 0.0,
+        "HeightAdjustment": 0.0,
+        "Nodes": [],
+        "HasNestedGroups": false,
+        "Left": 710.02078680717659,
+        "Top": 153.17038070345538,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "fcf5001e55bf4a6c8e09dbf4b5ac7640",
+        "Title": "",
+        "DescriptionText": null,
+        "IsExpanded": true,
+        "WidthAdjustment": 0.0,
+        "HeightAdjustment": 0.0,
+        "Nodes": [],
+        "HasNestedGroups": false,
+        "Left": 55.763340135564988,
+        "Top": 153.17038070345538,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "3853237e981e4966b3631c0a332a8111",
+        "Title": "",
+        "DescriptionText": null,
+        "IsExpanded": true,
+        "WidthAdjustment": 0.0,
+        "HeightAdjustment": 0.0,
+        "Nodes": [],
+        "HasNestedGroups": false,
+        "Left": 340.25805946507779,
+        "Top": 153.17038070345538,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "ac08b3a02f28418d96beb94b5673bd75",
+        "Title": "",
+        "DescriptionText": null,
+        "IsExpanded": true,
+        "WidthAdjustment": 0.0,
+        "HeightAdjustment": 0.0,
+        "Nodes": [],
+        "HasNestedGroups": false,
+        "Left": 797.90699976751262,
+        "Top": 153.17038070345538,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "4cc1cbe7f6144356b1ecdb524ebd644e",
+        "Title": "",
+        "DescriptionText": null,
+        "IsExpanded": true,
+        "WidthAdjustment": 0.0,
+        "HeightAdjustment": 0.0,
+        "Nodes": [],
+        "HasNestedGroups": false,
+        "Left": 1085.8821503416175,
+        "Top": 153.17038070345538,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "879bcb4428164c658054a4368cf6a558",
+        "Title": "",
+        "DescriptionText": null,
+        "IsExpanded": true,
+        "WidthAdjustment": 0.0,
+        "HeightAdjustment": 0.0,
+        "Nodes": [],
+        "HasNestedGroups": false,
+        "Left": 1172.4133826598404,
+        "Top": 153.17038070345538,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "bf3b06ad77ab4a1daf7d208d203ec03f",
+        "Title": "",
+        "DescriptionText": null,
+        "IsExpanded": true,
+        "WidthAdjustment": 0.0,
+        "HeightAdjustment": 0.0,
+        "Nodes": [],
+        "HasNestedGroups": false,
+        "Left": 1458.7714375688604,
+        "Top": 153.17038070345538,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "1f3380a493584398a61d70a0c1d595b8",
+        "Title": "",
+        "DescriptionText": null,
+        "IsExpanded": true,
+        "WidthAdjustment": 0.0,
+        "HeightAdjustment": 0.0,
+        "Nodes": [],
+        "HasNestedGroups": false,
+        "Left": 1545.6549490440932,
+        "Top": 153.17038070345538,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "986f792abb464c749fc9c454def76d5d",
+        "Title": "",
+        "DescriptionText": null,
+        "IsExpanded": true,
+        "WidthAdjustment": 0.0,
+        "HeightAdjustment": 0.0,
+        "Nodes": [],
+        "HasNestedGroups": false,
+        "Left": 1832.0130039531132,
+        "Top": 153.17038070345538,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "e4d5b1704af84150899f85b011ba38f7",
+        "Title": "",
+        "DescriptionText": null,
+        "IsExpanded": true,
+        "WidthAdjustment": 0.0,
+        "HeightAdjustment": 0.0,
+        "Nodes": [],
+        "HasNestedGroups": false,
+        "Left": 1923.1851492563799,
+        "Top": 110.11529599427385,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "0a3d86b0d48e4aa8add19835d70b7a6f",
+        "Title": "",
+        "DescriptionText": null,
+        "IsExpanded": true,
+        "WidthAdjustment": 0.0,
+        "HeightAdjustment": 0.0,
+        "Nodes": [],
+        "HasNestedGroups": false,
+        "Left": 2205.3786488787646,
+        "Top": 153.17038070345538,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "ad27d65e6eeb4c569d906a17130d77c3",
+        "Title": "Copyright (c) 2024 Anas Zokronain\r\n\r\nPermission is hereby granted, free of charge, to any person obtaining a copy\r\nof this software and associated documentation files (the \"Software\"), to deal\r\nin the Software without restriction, including without limitation the rights\r\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\r\ncopies of the Software, and to permit persons to whom the Software is\r\nfurnished to do so, subject to the following conditions:\r\n\r\nThe above copyright notice and this permission notice shall be included in all\r\ncopies or substantial portions of the Software.\r\n\r\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\r\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\r\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\r\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\r\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\r\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\r\nSOFTWARE.",
+        "DescriptionText": null,
+        "IsExpanded": true,
+        "WidthAdjustment": 0.0,
+        "HeightAdjustment": 0.0,
+        "Nodes": [],
+        "HasNestedGroups": false,
+        "Left": 46.976546390791611,
+        "Top": -472.11375269160476,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      }
+    ],
+    "X": 152.35150243088373,
+    "Y": 301.73538258298055,
+    "Zoom": 0.078713604401274381
+  }
+}

@@ -1,0 +1,889 @@
+{
+  "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Edit_createDimension",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementsSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "0da997a1-536a-46ad-9a6b-a5e077e311f6-0008d846",
+        "0da997a1-536a-46ad-9a6b-a5e077e311f6-0008df08",
+        "66b1b21d-e8ff-455d-8500-b710e416b504-00094c05",
+        "fb1a51c3-74de-449e-8254-2df5bc9a6b5e-000a31b5",
+        "fb1a51c3-74de-449e-8254-2df5bc9a6b5e-000a3215",
+        "fb1a51c3-74de-449e-8254-2df5bc9a6b5e-000a3270",
+        "fb1a51c3-74de-449e-8254-2df5bc9a6b5e-000a3280",
+        "fb1a51c3-74de-449e-8254-2df5bc9a6b5e-000a3290",
+        "fb1a51c3-74de-449e-8254-2df5bc9a6b5e-000a32a0",
+        "fb1a51c3-74de-449e-8254-2df5bc9a6b5e-000a32b0",
+        "1212e516-f282-414d-a6bc-b9c94cd3d90a-000a90ca",
+        "1212e516-f282-414d-a6bc-b9c94cd3d90a-000a90da",
+        "1212e516-f282-414d-a6bc-b9c94cd3d90a-000a9147",
+        "1212e516-f282-414d-a6bc-b9c94cd3d90a-000a9157",
+        "1212e516-f282-414d-a6bc-b9c94cd3d90a-000a9167",
+        "1212e516-f282-414d-a6bc-b9c94cd3d90a-000a9177",
+        "1212e516-f282-414d-a6bc-b9c94cd3d90a-000a9187",
+        "a3e68da3-a60a-4082-9726-2527e2f903d9-000ab9ca",
+        "a3e68da3-a60a-4082-9726-2527e2f903d9-000ab9da",
+        "a3e68da3-a60a-4082-9726-2527e2f903d9-000ab9ea",
+        "a3e68da3-a60a-4082-9726-2527e2f903d9-000ab9fa",
+        "a3e68da3-a60a-4082-9726-2527e2f903d9-000aba0a",
+        "a3e68da3-a60a-4082-9726-2527e2f903d9-000aba1a",
+        "a3e68da3-a60a-4082-9726-2527e2f903d9-000aba2a",
+        "a3e68da3-a60a-4082-9726-2527e2f903d9-000abac5",
+        "a3e68da3-a60a-4082-9726-2527e2f903d9-000abb20",
+        "a3e68da3-a60a-4082-9726-2527e2f903d9-000abc12",
+        "a3e68da3-a60a-4082-9726-2527e2f903d9-000abc21",
+        "a3e68da3-a60a-4082-9726-2527e2f903d9-000abc30",
+        "a3e68da3-a60a-4082-9726-2527e2f903d9-000abc3f",
+        "a3e68da3-a60a-4082-9726-2527e2f903d9-000abc4e",
+        "a3e68da3-a60a-4082-9726-2527e2f903d9-000abc5d",
+        "a4279af7-0331-4f34-84c9-47fc02f7e043-000b15c3",
+        "a4279af7-0331-4f34-84c9-47fc02f7e043-000b15da",
+        "a4279af7-0331-4f34-84c9-47fc02f7e043-000b15e3",
+        "a4279af7-0331-4f34-84c9-47fc02f7e043-000b1607",
+        "a4279af7-0331-4f34-84c9-47fc02f7e043-000b1609",
+        "a4279af7-0331-4f34-84c9-47fc02f7e043-000b160a",
+        "a4279af7-0331-4f34-84c9-47fc02f7e043-000b1612",
+        "a4279af7-0331-4f34-84c9-47fc02f7e043-000b1613",
+        "a4279af7-0331-4f34-84c9-47fc02f7e043-000b1614",
+        "a4279af7-0331-4f34-84c9-47fc02f7e043-000b161d",
+        "a4279af7-0331-4f34-84c9-47fc02f7e043-000b161e",
+        "a4279af7-0331-4f34-84c9-47fc02f7e043-000b161f",
+        "a4279af7-0331-4f34-84c9-47fc02f7e043-000b1628",
+        "a4279af7-0331-4f34-84c9-47fc02f7e043-000b1629",
+        "a4279af7-0331-4f34-84c9-47fc02f7e043-000b162a",
+        "a4279af7-0331-4f34-84c9-47fc02f7e043-000b1633",
+        "a4279af7-0331-4f34-84c9-47fc02f7e043-000b1634",
+        "a4279af7-0331-4f34-84c9-47fc02f7e043-000b1635",
+        "a4279af7-0331-4f34-84c9-47fc02f7e043-000b163e",
+        "a4279af7-0331-4f34-84c9-47fc02f7e043-000b163f",
+        "a4279af7-0331-4f34-84c9-47fc02f7e043-000b1640",
+        "a4279af7-0331-4f34-84c9-47fc02f7e043-000b1649",
+        "a4279af7-0331-4f34-84c9-47fc02f7e043-000b164a",
+        "a4279af7-0331-4f34-84c9-47fc02f7e043-000b164b",
+        "e6e6d500-9824-4565-8999-98f0ea85aa12-000b18ab",
+        "e6e6d500-9824-4565-8999-98f0ea85aa12-000b1edd",
+        "e6e6d500-9824-4565-8999-98f0ea85aa12-000b1f54",
+        "e6e6d500-9824-4565-8999-98f0ea85aa12-000b1f5f",
+        "e6e6d500-9824-4565-8999-98f0ea85aa12-000b1f67",
+        "e6e6d500-9824-4565-8999-98f0ea85aa12-000b1f71",
+        "e6e6d500-9824-4565-8999-98f0ea85aa12-000b1f79",
+        "e6e6d500-9824-4565-8999-98f0ea85aa12-000b1f81",
+        "ee875ddb-b46d-49b0-9969-2e19bd6cbcc9-0012e430",
+        "da79add0-b88c-4f12-8913-feee5425f831-0015d1ba",
+        "8a42b510-f4ef-49b4-9fd0-1f92ad0518d5-00168204",
+        "8a42b510-f4ef-49b4-9fd0-1f92ad0518d5-00168347",
+        "bb87559e-15bb-4f14-b09b-ac208bcbdcb0-001a6926",
+        "bb87559e-15bb-4f14-b09b-ac208bcbdcb0-001a6a0b",
+        "bb87559e-15bb-4f14-b09b-ac208bcbdcb0-001a6a15",
+        "bb87559e-15bb-4f14-b09b-ac208bcbdcb0-001a6a1e",
+        "bb87559e-15bb-4f14-b09b-ac208bcbdcb0-001a6a28",
+        "bb87559e-15bb-4f14-b09b-ac208bcbdcb0-001a6a33",
+        "02d6094b-816c-4f16-bb2f-3edd040ab45c-001b1a18",
+        "618ce06c-7764-4df9-89d0-6940bff6a505-001d4ed9",
+        "618ce06c-7764-4df9-89d0-6940bff6a505-001d5957",
+        "618ce06c-7764-4df9-89d0-6940bff6a505-001d5a9b",
+        "618ce06c-7764-4df9-89d0-6940bff6a505-001d5bdf",
+        "618ce06c-7764-4df9-89d0-6940bff6a505-001d5d25"
+      ],
+      "Id": "36f9fb641960486da3a6949206edaaf0",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "49ff978e117e42009d71692c9218e6df",
+          "Name": "Elements",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "ba8b7d16-46d3-4c93-96c3-df912d9c1f9e",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "cf9184b93f204c4596c57eed5f51ed78",
+      "Inputs": [
+        {
+          "Id": "521aabaeb4584c999c2301a3caf9d965",
+          "Name": "view",
+          "Description": "View to place dimension in\n\nView\nDefault value : Revit.Application.Document.Current.ActiveView",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "efa00080360f4c819b97cd402130ee1f",
+          "Name": "line",
+          "Description": "Location of the dimension\n\nCurve[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "9948b25c51464be287e92985222bea96",
+          "Name": "references",
+          "Description": "Autodesk.Revit.DB.Reference\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "22bd85bb79d54bf69a2690a47b2333ab",
+          "Name": "dimensionType",
+          "Description": "var[]..[]\nDefault value : null",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "d16aa58e17024656a2eef308e151ae25",
+          "Name": "Dimension",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Creates a new linear dimension from at least two geometric references of an object."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Geometry.Translate@Autodesk.DesignScript.Geometry.Vector",
+      "Id": "a3dfdf55f0b549a49959f362932e7112",
+      "Inputs": [
+        {
+          "Id": "c72a685308004200a4ab547718a1f237",
+          "Name": "geometry",
+          "Description": "Autodesk.DesignScript.Geometry.Geometry",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "bde5908bd0b840248dc6c85851a182fa",
+          "Name": "direction",
+          "Description": "Vector",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "28b5f6d82feb4fbf9855fcaedf7b606d",
+          "Name": "Geometry",
+          "Description": "Geometry",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Translate geometry in the given direction by the vector length\n\nGeometry.Translate (direction: Vector): Geometry"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Curve.NormalAtParameter@double",
+      "Id": "bc6920b92cfb472eb226f52e0a2969b8",
+      "Inputs": [
+        {
+          "Id": "1328f7c61f5a43ffa5f601e0989b6739",
+          "Name": "curve",
+          "Description": "Autodesk.DesignScript.Geometry.Curve",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "cd00b3fea5e642e78e96258085c1be79",
+          "Name": "param",
+          "Description": "The parameter at which to evaluate\n\ndouble\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "9c4dc353799d4d75bb52c3af3e53f804",
+          "Name": "Vector",
+          "Description": "A Vector perpendicular to the curve at param",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get a Vector perpendicular to the curve at a specified parameter between StartParameter() and EndParameter()\n\nCurve.NormalAtParameter (param: double = 0): Vector"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "0.5;",
+      "Id": "15e9ffdf76674a608a53c8954a3a16d8",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "aede6637a9224da0a97103053e2133e1",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "f93fc27a-3fc0-4e79-b225-25ca54ac08f4",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "bc17e9a9d9214ba6a6829384bc3c6ff3",
+      "Inputs": [
+        {
+          "Id": "d5c4b7088ca54dfebaf5372551006b85",
+          "Name": "wall",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "d1ed84215163482598577891aea768db",
+          "Name": "Exterior Side Vertical Edges",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "cda73ff31bce47cfad2f505c607e1ad7",
+          "Name": "Exterior Side Vertical References",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "65e58f41b63a43b0adf075d1ad8e8f6f",
+          "Name": "Interior Side Vertical Edges",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "bb4d6e852ffd4472848ad85e6b384529",
+          "Name": "Interior Side Vertical References",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "9d42d19e0fc24e27afa25786c200f2f3",
+          "Name": "Exterior Side Horizontal Edges",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "93389546da2f468182ccb02c8452dab1",
+          "Name": "Exterior Side Horizontal References",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b3f13418172047c0b409a2e03d69db1a",
+          "Name": "Interior Side Horizontal Edges",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "05695a947a404f3e9f1d1e49ef318ca0",
+          "Name": "Interior Side Horizontal References",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get the vertical and horizontal edges and their references from the exterior and interior faces.\r\nAlso works with linked walls."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "66d838bd-7dd6-48c6-86b9-5d5f88424b70",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "a5ffd7e4ea6a4549b13da641353aea85",
+      "Inputs": [
+        {
+          "Id": "d05298e8602c432eb117e165170da80b",
+          "Name": "refresh",
+          "Description": "bool\nDefault value : true",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "8e49f53fe89542af969049913a1efc1a",
+          "Name": "activeView",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Given the current document, return the active view."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Element.Curves",
+      "Id": "014fc2af67f54502bcc88d6e79611a19",
+      "Inputs": [
+        {
+          "Id": "96e2c552d1094d05a53b6fa51966064e",
+          "Name": "element",
+          "Description": "Revit.Elements.Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "92cd6aeac55d41e9ba8dcd02578fe649",
+          "Name": "Curve[]",
+          "Description": "Curve[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "The Curves in this Element\n\nElement.Curves: Curve[]"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "49ff978e117e42009d71692c9218e6df",
+      "End": "d5c4b7088ca54dfebaf5372551006b85",
+      "Id": "666469077f9f484387abfd35c7150261"
+    },
+    {
+      "Start": "49ff978e117e42009d71692c9218e6df",
+      "End": "96e2c552d1094d05a53b6fa51966064e",
+      "Id": "db6ae09788424af98693482227cc1f87"
+    },
+    {
+      "Start": "28b5f6d82feb4fbf9855fcaedf7b606d",
+      "End": "efa00080360f4c819b97cd402130ee1f",
+      "Id": "97773d3aa2974542ab64f4734256363f"
+    },
+    {
+      "Start": "9c4dc353799d4d75bb52c3af3e53f804",
+      "End": "bde5908bd0b840248dc6c85851a182fa",
+      "Id": "d928218ef9084c4c92fa3d2b90cac72b"
+    },
+    {
+      "Start": "aede6637a9224da0a97103053e2133e1",
+      "End": "cd00b3fea5e642e78e96258085c1be79",
+      "Id": "787f4821fe9144048148d1a5d6c4c82d"
+    },
+    {
+      "Start": "cda73ff31bce47cfad2f505c607e1ad7",
+      "End": "9948b25c51464be287e92985222bea96",
+      "Id": "bcd14b9fbb754b2bb3e5fb3f7a7ca817"
+    },
+    {
+      "Start": "8e49f53fe89542af969049913a1efc1a",
+      "End": "521aabaeb4584c999c2301a3caf9d965",
+      "Id": "81d5a9032da2440eae283c44ec4e5430"
+    },
+    {
+      "Start": "92cd6aeac55d41e9ba8dcd02578fe649",
+      "End": "1328f7c61f5a43ffa5f601e0989b6739",
+      "Id": "9448a3da84454bd6a68391533ca168c3"
+    },
+    {
+      "Start": "92cd6aeac55d41e9ba8dcd02578fe649",
+      "End": "c72a685308004200a4ab547718a1f237",
+      "Id": "3be71e961b704856b612699490ef35f6"
+    }
+  ],
+  "Dependencies": [
+    "ba8b7d16-46d3-4c93-96c3-df912d9c1f9e",
+    "f93fc27a-3fc0-4e79-b225-25ca54ac08f4",
+    "66d838bd-7dd6-48c6-86b9-5d5f88424b70"
+  ],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "Genius Loci",
+      "Version": "2024.2.26",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "cf9184b93f204c4596c57eed5f51ed78",
+        "bc17e9a9d9214ba6a6829384bc3c6ff3"
+      ]
+    },
+    {
+      "Name": "Crumple",
+      "Version": "2022.5.27",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "a5ffd7e4ea6a4549b13da641353aea85"
+      ]
+    }
+  ],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.10.1.3976",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -91.602752685546875,
+      "EyeY": 103.73907470703125,
+      "EyeZ": 165.69505310058594,
+      "LookX": 95.1541519165039,
+      "LookY": -50.598861694335938,
+      "LookZ": -181.32369995117188,
+      "UpX": 0.01216384582221508,
+      "UpY": 0.99965733289718628,
+      "UpZ": -0.023179160431027412
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Select Model Elements",
+        "Id": "36f9fb641960486da3a6949206edaaf0",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 36.327937004202568,
+        "Y": 379.34393418260851
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Dimension ByReferences",
+        "Id": "cf9184b93f204c4596c57eed5f51ed78",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1444.4030500450708,
+        "Y": 361.02349015039749
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Geometry.Translate",
+        "Id": "a3dfdf55f0b549a49959f362932e7112",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1023.1704745897239,
+        "Y": 371.31986302987423
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Curve.NormalAtParameter",
+        "Id": "bc6920b92cfb472eb226f52e0a2969b8",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 692.08589981743626,
+        "Y": 439.28346953703215
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "15e9ffdf76674a608a53c8954a3a16d8",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 447.41999466049344,
+        "Y": 489.09532627024231
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Wall Edges References",
+        "Id": "bc17e9a9d9214ba6a6829384bc3c6ff3",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 349.38784131585567,
+        "Y": 671.1937635891195
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "© Revit.CurrentView",
+        "Id": "a5ffd7e4ea6a4549b13da641353aea85",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1039.396851786571,
+        "Y": 276.02979300005
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Element.Curves",
+        "Id": "014fc2af67f54502bcc88d6e79611a19",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 348.55724621013354,
+        "Y": 372.32059916776745
+      }
+    ],
+    "Annotations": [
+      {
+        "Id": "b2f8ad04f55c42fba5ff036ae6adc27f",
+        "Title": "Information collection and filtering",
+        "Nodes": [
+          "5c8cc0cdde514140b1875318c75d4282",
+          "144965ee89a24a7a9690e98c6ef30d95"
+        ],
+        "Left": 415.52606747766384,
+        "Top": 57.170380703455379,
+        "Width": 354.49471932951275,
+        "Height": 145.0,
+        "FontSize": 36.0,
+        "InitialTop": 153.17038070345538,
+        "InitialHeight": 145.0,
+        "TextblockHeight": 86.0,
+        "Background": "#FFD4B6DB"
+      },
+      {
+        "Id": "30e839ca80c04f12b85be15506ba9989",
+        "Title": "User Selection, settings and Credits",
+        "Nodes": [
+          "fcf5001e55bf4a6c8e09dbf4b5ac7640",
+          "3853237e981e4966b3631c0a332a8111"
+        ],
+        "Left": 45.763340135564988,
+        "Top": 57.170380703455379,
+        "Width": 354.4947193295128,
+        "Height": 145.0,
+        "FontSize": 36.0,
+        "InitialTop": 153.17038070345538,
+        "InitialHeight": 145.0,
+        "TextblockHeight": 86.0,
+        "Background": "#FF48B9FF"
+      },
+      {
+        "Id": "a40ea8dc2657448d866b640e6d5cee37",
+        "Title": "Data processing and output",
+        "Nodes": [
+          "ac08b3a02f28418d96beb94b5673bd75",
+          "4cc1cbe7f6144356b1ecdb524ebd644e"
+        ],
+        "Left": 787.90699976751262,
+        "Top": 57.170380703455379,
+        "Width": 357.97515057410487,
+        "Height": 145.0,
+        "FontSize": 36.0,
+        "InitialTop": 153.17038070345538,
+        "InitialHeight": 145.0,
+        "TextblockHeight": 86.0,
+        "Background": "#FFB5B5B5"
+      },
+      {
+        "Id": "92eaa1b3bd91447b8830700f59396daa",
+        "Title": "Create elements in Dynamo",
+        "Nodes": [
+          "879bcb4428164c658054a4368cf6a558",
+          "bf3b06ad77ab4a1daf7d208d203ec03f"
+        ],
+        "Left": 1162.4133826598404,
+        "Top": 57.170380703455379,
+        "Width": 356.35805490902,
+        "Height": 145.0,
+        "FontSize": 36.0,
+        "InitialTop": 153.17038070345538,
+        "InitialHeight": 145.0,
+        "TextblockHeight": 86.0,
+        "Background": "#FFFFB8D8"
+      },
+      {
+        "Id": "0a8051b81f0142b79762e03615d52f97",
+        "Title": "Create elements in Revit",
+        "Nodes": [
+          "1f3380a493584398a61d70a0c1d595b8",
+          "986f792abb464c749fc9c454def76d5d"
+        ],
+        "Left": 1535.6549490440932,
+        "Top": 57.170380703455379,
+        "Width": 356.35805490902,
+        "Height": 145.0,
+        "FontSize": 36.0,
+        "InitialTop": 153.17038070345538,
+        "InitialHeight": 145.0,
+        "TextblockHeight": 86.0,
+        "Background": "#FFE8F7AD"
+      },
+      {
+        "Id": "3494f0aef584408c8cee7c676472c4cb",
+        "Title": "Writing Data",
+        "Nodes": [
+          "e4d5b1704af84150899f85b011ba38f7",
+          "0a3d86b0d48e4aa8add19835d70b7a6f"
+        ],
+        "Left": 1913.1851492563799,
+        "Top": 57.115295994273851,
+        "Width": 352.19349962238471,
+        "Height": 145.05508470918153,
+        "FontSize": 36.0,
+        "InitialTop": 110.11529599427385,
+        "InitialHeight": 188.05508470918153,
+        "TextblockHeight": 43.0,
+        "Background": "#FFFFC999"
+      },
+      {
+        "Id": "5c8cc0cdde514140b1875318c75d4282",
+        "Title": "",
+        "Nodes": [],
+        "Left": 425.52606747766384,
+        "Top": 153.17038070345538,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "144965ee89a24a7a9690e98c6ef30d95",
+        "Title": "",
+        "Nodes": [],
+        "Left": 710.02078680717659,
+        "Top": 153.17038070345538,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "fcf5001e55bf4a6c8e09dbf4b5ac7640",
+        "Title": "",
+        "Nodes": [],
+        "Left": 55.763340135564988,
+        "Top": 153.17038070345538,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "3853237e981e4966b3631c0a332a8111",
+        "Title": "",
+        "Nodes": [],
+        "Left": 340.25805946507779,
+        "Top": 153.17038070345538,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "ac08b3a02f28418d96beb94b5673bd75",
+        "Title": "",
+        "Nodes": [],
+        "Left": 797.90699976751262,
+        "Top": 153.17038070345538,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "4cc1cbe7f6144356b1ecdb524ebd644e",
+        "Title": "",
+        "Nodes": [],
+        "Left": 1085.8821503416175,
+        "Top": 153.17038070345538,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "879bcb4428164c658054a4368cf6a558",
+        "Title": "",
+        "Nodes": [],
+        "Left": 1172.4133826598404,
+        "Top": 153.17038070345538,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "bf3b06ad77ab4a1daf7d208d203ec03f",
+        "Title": "",
+        "Nodes": [],
+        "Left": 1458.7714375688604,
+        "Top": 153.17038070345538,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "1f3380a493584398a61d70a0c1d595b8",
+        "Title": "",
+        "Nodes": [],
+        "Left": 1545.6549490440932,
+        "Top": 153.17038070345538,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "986f792abb464c749fc9c454def76d5d",
+        "Title": "",
+        "Nodes": [],
+        "Left": 1832.0130039531132,
+        "Top": 153.17038070345538,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "e4d5b1704af84150899f85b011ba38f7",
+        "Title": "",
+        "Nodes": [],
+        "Left": 1923.1851492563799,
+        "Top": 110.11529599427385,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "0a3d86b0d48e4aa8add19835d70b7a6f",
+        "Title": "",
+        "Nodes": [],
+        "Left": 2205.3786488787646,
+        "Top": 153.17038070345538,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "ad27d65e6eeb4c569d906a17130d77c3",
+        "Title": "Copyright (c) 2024 Anas Zokronain\r\n\r\nPermission is hereby granted, free of charge, to any person obtaining a copy\r\nof this software and associated documentation files (the \"Software\"), to deal\r\nin the Software without restriction, including without limitation the rights\r\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\r\ncopies of the Software, and to permit persons to whom the Software is\r\nfurnished to do so, subject to the following conditions:\r\n\r\nThe above copyright notice and this permission notice shall be included in all\r\ncopies or substantial portions of the Software.\r\n\r\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\r\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\r\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\r\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\r\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\r\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\r\nSOFTWARE.",
+        "Nodes": [],
+        "Left": 47.857347419504265,
+        "Top": -438.89918991934849,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      }
+    ],
+    "X": -53.41902736950604,
+    "Y": -119.70861732575344,
+    "Zoom": 0.7798789073482072
+  }
+}

@@ -1,0 +1,693 @@
+{
+  "Uuid": "b18ff8c6-02ab-49e3-9114-a40e38acba44",
+  "IsCustomNode": false,
+  "Description": null,
+  "Name": "Edit_GridLevelDimensions",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Application.Document.Current",
+      "Id": "0d1a8d1511ae44098d0c330174b7dacb",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "6f4ad93fd4714b9b9d45292422bb100c",
+          "Name": "Document",
+          "Description": "Document",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get the current document\n\nDocument.Current: Document"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Application.Document.ActiveView",
+      "Id": "71c7310a887e4d0690ae4e06bff65b98",
+      "Inputs": [
+        {
+          "Id": "00fd1d4ec2e0404cb5db999fa8dfbf1f",
+          "Name": "document",
+          "Description": "Revit.Application.Document",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "6143681273e24a28a96ab5534f064a73",
+          "Name": "View",
+          "Description": "View",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get the active view for the document\n\nDocument.ActiveView: View"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Dimension.ByElements@Revit.Elements.Views.View,Revit.Elements.Element[],Autodesk.DesignScript.Geometry.Line,string,string",
+      "Id": "7487ad3427624fa58bcdc8131c38e060",
+      "Inputs": [
+        {
+          "Id": "174053791447416181b5dcb584c3bdb9",
+          "Name": "view",
+          "Description": "View to place dimension in\n\nView",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b8da7882cd8d41ab9231443f7d046288",
+          "Name": "referenceElements",
+          "Description": "Elements to dimension\n\nElement[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b4098cad627f46229a3b3614aaad2219",
+          "Name": "line",
+          "Description": "location of the dimension\n\nLine\nDefault value : null",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "69934f9a956e4ce4a02833dea046e8bd",
+          "Name": "suffix",
+          "Description": "Suffix\n\nstring\nDefault value : \"\"",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "785c72a85c284b3cbad0820ee9c60f11",
+          "Name": "prefix",
+          "Description": "Prefix\n\nstring\nDefault value : \"\"",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "386a403fff7a49d7b6eb641ca8e9b37f",
+          "Name": "Dimension",
+          "Description": "Dimension",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Construct a Revit Linear Dimension from at least two elements.\n\nDimension.ByElements (view: View, referenceElements: Element[], line: Line = null, suffix: string = \"\", prefix: string = \"\"): Dimension"
+    },
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementsSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "8064508b-b1f7-4ce0-8b74-b01216fe86a1-0008b34a",
+        "8064508b-b1f7-4ce0-8b74-b01216fe86a1-0008b389",
+        "8064508b-b1f7-4ce0-8b74-b01216fe86a1-0008b392",
+        "8064508b-b1f7-4ce0-8b74-b01216fe86a1-0008b399",
+        "8064508b-b1f7-4ce0-8b74-b01216fe86a1-0008b3a2",
+        "8064508b-b1f7-4ce0-8b74-b01216fe86a1-0008b3a9",
+        "8064508b-b1f7-4ce0-8b74-b01216fe86a1-0008b3b0",
+        "8064508b-b1f7-4ce0-8b74-b01216fe86a1-0008b3b9",
+        "8064508b-b1f7-4ce0-8b74-b01216fe86a1-0008b3c2",
+        "8064508b-b1f7-4ce0-8b74-b01216fe86a1-0008b3c9",
+        "8064508b-b1f7-4ce0-8b74-b01216fe86a1-0008b3d8",
+        "8064508b-b1f7-4ce0-8b74-b01216fe86a1-0008b3dd",
+        "8064508b-b1f7-4ce0-8b74-b01216fe86a1-0008b3e6",
+        "8064508b-b1f7-4ce0-8b74-b01216fe86a1-0008b3ef",
+        "8064508b-b1f7-4ce0-8b74-b01216fe86a1-0008b3f6",
+        "8064508b-b1f7-4ce0-8b74-b01216fe86a1-0008b3fd",
+        "8064508b-b1f7-4ce0-8b74-b01216fe86a1-0008b404",
+        "8064508b-b1f7-4ce0-8b74-b01216fe86a1-0008b409",
+        "8064508b-b1f7-4ce0-8b74-b01216fe86a1-0008b412",
+        "8064508b-b1f7-4ce0-8b74-b01216fe86a1-0008b41b",
+        "8064508b-b1f7-4ce0-8b74-b01216fe86a1-0008b422",
+        "8064508b-b1f7-4ce0-8b74-b01216fe86a1-0008b429",
+        "8064508b-b1f7-4ce0-8b74-b01216fe86a1-0008b430",
+        "8064508b-b1f7-4ce0-8b74-b01216fe86a1-0008b439"
+      ],
+      "Id": "e8bc1c1b89d549af8085cdd02e53df4f",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "cc9698d27b3f433c980d637d4dbb4303",
+          "Name": "Elements",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "d5809bde-6891-4421-9c2d-9b0c6fd127fc-00203bb0"
+      ],
+      "Id": "4f1779faabbc4f4e9bcc946406919d92",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "41905145e8064579b606d1f10d1aedf4",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Element.Curves",
+      "Id": "58656afcbd514c68976f417cb59c9ffa",
+      "Inputs": [
+        {
+          "Id": "ccee2bb8fb6c4bd286e446c4a291c9ab",
+          "Name": "element",
+          "Description": "Revit.Elements.Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "1444641215714d88b0e76dcbcf9f69e5",
+          "Name": "Curve[]",
+          "Description": "Curve[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "The Curves in this Element\n\nElement.Curves: Curve[]"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "6f4ad93fd4714b9b9d45292422bb100c",
+      "End": "00fd1d4ec2e0404cb5db999fa8dfbf1f",
+      "Id": "1ec1d6bad6ed4fb8b7a7d8d7e780ab71"
+    },
+    {
+      "Start": "6143681273e24a28a96ab5534f064a73",
+      "End": "174053791447416181b5dcb584c3bdb9",
+      "Id": "2548e0b207e7466ab1bc2d23d567f3a6"
+    },
+    {
+      "Start": "cc9698d27b3f433c980d637d4dbb4303",
+      "End": "b8da7882cd8d41ab9231443f7d046288",
+      "Id": "dcf2776bc2764618b15e269b611ad8df"
+    },
+    {
+      "Start": "41905145e8064579b606d1f10d1aedf4",
+      "End": "ccee2bb8fb6c4bd286e446c4a291c9ab",
+      "Id": "5d424acfe06940ee8880f551508b705d"
+    },
+    {
+      "Start": "1444641215714d88b0e76dcbcf9f69e5",
+      "End": "b4098cad627f46229a3b3614aaad2219",
+      "Id": "3549f4b885c54b4e8d01557ecc1ec9bd"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.10.1.3976",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -526.42742919921875,
+      "EyeY": 929.1123046875,
+      "EyeZ": -85.947822570800781,
+      "LookX": 273.95855712890625,
+      "LookY": -250.1302490234375,
+      "LookZ": -262.8143310546875,
+      "UpX": 0.25860970613822959,
+      "UpY": 0.9335804264972053,
+      "UpZ": -0.24808991747429371
+    },
+    "NodeViews": [
+      {
+        "Id": "0d1a8d1511ae44098d0c330174b7dacb",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Document.Current",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 2614.967283993115,
+        "Y": 210.35831862952807
+      },
+      {
+        "Id": "71c7310a887e4d0690ae4e06bff65b98",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Document.ActiveView",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 2958.343240380224,
+        "Y": 210.20121018613889
+      },
+      {
+        "Id": "7487ad3427624fa58bcdc8131c38e060",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Dimension.ByElements",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 3302.3155076607441,
+        "Y": 285.96000438666681
+      },
+      {
+        "Id": "e8bc1c1b89d549af8085cdd02e53df4f",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Name": "Select Grids",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 2611.6830954075676,
+        "Y": 463.59873473276758
+      },
+      {
+        "Id": "4f1779faabbc4f4e9bcc946406919d92",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Name": "Select Line Location",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 2611.6830954075676,
+        "Y": 670.86700228010625
+      },
+      {
+        "Id": "58656afcbd514c68976f417cb59c9ffa",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Element.Curves",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 2973.7496524674993,
+        "Y": 655.51794602232428
+      }
+    ],
+    "Annotations": [
+      {
+        "Id": "50b6a5d89a6445628060f303ca87d9fb",
+        "Title": "Information collection and filtering",
+        "Nodes": [
+          "35bed65308de4a48b65a0ba3322e2de8",
+          "596a1007d9034ebbaa7fbf1b6a71c65e"
+        ],
+        "Left": 2937.9178700808188,
+        "Top": -92.434367013120436,
+        "Width": 354.49471932951292,
+        "Height": 145.0,
+        "FontSize": 36.0,
+        "InitialTop": 3.5656329868795638,
+        "InitialHeight": 145.0,
+        "TextblockHeight": 86.0,
+        "Background": "#FFD4B6DB"
+      },
+      {
+        "Id": "01ae1820c11b4d17909eab580fd3303a",
+        "Title": "User Selection, settings and Credits",
+        "Nodes": [
+          "13449cd7a8024b2282bb5254ff4f934e",
+          "dd9c461fd6c444c482ffcdf0718b1be4"
+        ],
+        "Left": 2568.1551427387203,
+        "Top": -92.434367013120436,
+        "Width": 354.49471932951246,
+        "Height": 145.0,
+        "FontSize": 36.0,
+        "InitialTop": 3.5656329868795638,
+        "InitialHeight": 145.0,
+        "TextblockHeight": 86.0,
+        "Background": "#FF48B9FF"
+      },
+      {
+        "Id": "3d38453a0c4a4dd58857e122c2e51555",
+        "Title": "Data processing and output",
+        "Nodes": [
+          "73e5b2e0c6c646bdb536d0fde33fbceb",
+          "9c211a77d1cd4db2b7d31ae8531ba54e"
+        ],
+        "Left": 3310.298802370668,
+        "Top": -92.434367013120436,
+        "Width": 357.97515057410465,
+        "Height": 145.0,
+        "FontSize": 36.0,
+        "InitialTop": 3.5656329868795638,
+        "InitialHeight": 145.0,
+        "TextblockHeight": 86.0,
+        "Background": "#FFB5B5B5"
+      },
+      {
+        "Id": "6a7530fee7fb4cfaae114a37eccc40fa",
+        "Title": "Create elements in Dynamo",
+        "Nodes": [
+          "c707219949764f509e74381f61078bf0",
+          "4625b57c36ae47cf81aab3039fc5b78c"
+        ],
+        "Left": 3684.8051852629956,
+        "Top": -92.434367013120436,
+        "Width": 356.35805490902021,
+        "Height": 145.0,
+        "FontSize": 36.0,
+        "InitialTop": 3.5656329868795638,
+        "InitialHeight": 145.0,
+        "TextblockHeight": 86.0,
+        "Background": "#FFFFB8D8"
+      },
+      {
+        "Id": "32d9fc510d8e48fca7567ace2a7bda19",
+        "Title": "Create elements in Revit",
+        "Nodes": [
+          "4cdc08863cf44e55946a74c4f9658d15",
+          "044146a9e210478b9eebeeaf59d1884c"
+        ],
+        "Left": 4058.0467516472486,
+        "Top": -92.434367013120436,
+        "Width": 356.35805490901885,
+        "Height": 145.0,
+        "FontSize": 36.0,
+        "InitialTop": 3.5656329868795638,
+        "InitialHeight": 145.0,
+        "TextblockHeight": 86.0,
+        "Background": "#FFE8F7AD"
+      },
+      {
+        "Id": "5a2a831c6fca4308aa723a3ae7dc348b",
+        "Title": "Writing Data",
+        "Nodes": [
+          "d87041f4c3d04e3295add7bc5936b57d",
+          "f1c74444348549f984d4365905d487d8"
+        ],
+        "Left": 4435.5769518595353,
+        "Top": -92.489451722301965,
+        "Width": 352.19349962238448,
+        "Height": 145.05508470918153,
+        "FontSize": 36.0,
+        "InitialTop": -39.489451722301965,
+        "InitialHeight": 188.05508470918153,
+        "TextblockHeight": 43.0,
+        "Background": "#FFFFC999"
+      },
+      {
+        "Id": "453a63a64355445a892f27e698131e05",
+        "Title": "Get active view",
+        "Nodes": [
+          "0d1a8d1511ae44098d0c330174b7dacb",
+          "71c7310a887e4d0690ae4e06bff65b98"
+        ],
+        "Left": 2604.967283993115,
+        "Top": 157.20121018613889,
+        "Width": 572.375956387109,
+        "Height": 146.15710844338918,
+        "FontSize": 36.0,
+        "InitialTop": 210.20121018613889,
+        "InitialHeight": 123.15710844338918,
+        "TextblockHeight": 43.0,
+        "Background": "#FF48B9FF"
+      },
+      {
+        "Id": "c597aa71ad9142d4a872099c1dc9a546",
+        "Title": "Select elements and location",
+        "Nodes": [
+          "e8bc1c1b89d549af8085cdd02e53df4f",
+          "4f1779faabbc4f4e9bcc946406919d92"
+        ],
+        "Left": 2601.6830954075676,
+        "Top": 367.59873473276758,
+        "Width": 289.0,
+        "Height": 422.26826754733867,
+        "FontSize": 36.0,
+        "InitialTop": 463.59873473276758,
+        "InitialHeight": 356.26826754733867,
+        "TextblockHeight": 86.0,
+        "Background": "#FF48B9FF"
+      },
+      {
+        "Id": "cdab94126c494f4c9acad6edd145ef59",
+        "Title": "Create dimension",
+        "Nodes": [
+          "7487ad3427624fa58bcdc8131c38e060"
+        ],
+        "Left": 3292.3155076607441,
+        "Top": 232.96000438666681,
+        "Width": 318.0,
+        "Height": 250.0,
+        "FontSize": 36.0,
+        "InitialTop": 285.96000438666681,
+        "InitialHeight": 227.0,
+        "TextblockHeight": 43.0,
+        "Background": "#FFE8F7AD"
+      },
+      {
+        "Id": "763c80b74b034861b6d2aee8867ca8f8",
+        "Title": "",
+        "Nodes": [
+          "58656afcbd514c68976f417cb59c9ffa"
+        ],
+        "Left": 2963.7496524674993,
+        "Top": 602.51794602232428,
+        "Width": 233.0,
+        "Height": 146.0,
+        "FontSize": 36.0,
+        "InitialTop": 655.51794602232428,
+        "InitialHeight": 123.0,
+        "TextblockHeight": 43.0,
+        "Background": "#FFB5B5B5"
+      },
+      {
+        "Id": "824900adf96348dd91d2a39180df90b3",
+        "Title": "Copyright (c) 2024 Anas Zokronain\r\n\r\nPermission is hereby granted, free of charge, to any person obtaining a copy\r\nof this software and associated documentation files (the \"Software\"), to deal\r\nin the Software without restriction, including without limitation the rights\r\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\r\ncopies of the Software, and to permit persons to whom the Software is\r\nfurnished to do so, subject to the following conditions:\r\n\r\nThe above copyright notice and this permission notice shall be included in all\r\ncopies or substantial portions of the Software.\r\n\r\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\r\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\r\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\r\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\r\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\r\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\r\nSOFTWARE.",
+        "Nodes": [],
+        "Left": 2570.2491500226593,
+        "Top": -588.50393763592433,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "35bed65308de4a48b65a0ba3322e2de8",
+        "Title": "",
+        "Nodes": [],
+        "Left": 2947.9178700808188,
+        "Top": 3.5656329868795638,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "596a1007d9034ebbaa7fbf1b6a71c65e",
+        "Title": "",
+        "Nodes": [],
+        "Left": 3232.4125894103317,
+        "Top": 3.5656329868795638,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "13449cd7a8024b2282bb5254ff4f934e",
+        "Title": "",
+        "Nodes": [],
+        "Left": 2578.1551427387203,
+        "Top": 3.5656329868795638,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "dd9c461fd6c444c482ffcdf0718b1be4",
+        "Title": "",
+        "Nodes": [],
+        "Left": 2862.6498620682328,
+        "Top": 3.5656329868795638,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "73e5b2e0c6c646bdb536d0fde33fbceb",
+        "Title": "",
+        "Nodes": [],
+        "Left": 3320.298802370668,
+        "Top": 3.5656329868795638,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "9c211a77d1cd4db2b7d31ae8531ba54e",
+        "Title": "",
+        "Nodes": [],
+        "Left": 3608.2739529447726,
+        "Top": 3.5656329868795638,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "c707219949764f509e74381f61078bf0",
+        "Title": "",
+        "Nodes": [],
+        "Left": 3694.8051852629956,
+        "Top": 3.5656329868795638,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "4625b57c36ae47cf81aab3039fc5b78c",
+        "Title": "",
+        "Nodes": [],
+        "Left": 3981.1632401720158,
+        "Top": 3.5656329868795638,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "4cdc08863cf44e55946a74c4f9658d15",
+        "Title": "",
+        "Nodes": [],
+        "Left": 4068.0467516472486,
+        "Top": 3.5656329868795638,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "044146a9e210478b9eebeeaf59d1884c",
+        "Title": "",
+        "Nodes": [],
+        "Left": 4354.4048065562674,
+        "Top": 3.5656329868795638,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "d87041f4c3d04e3295add7bc5936b57d",
+        "Title": "",
+        "Nodes": [],
+        "Left": 4445.5769518595353,
+        "Top": -39.489451722301965,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "f1c74444348549f984d4365905d487d8",
+        "Title": "",
+        "Nodes": [],
+        "Left": 4727.77045148192,
+        "Top": 3.5656329868795638,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      }
+    ],
+    "X": -993.26770154787937,
+    "Y": 291.14595932968354,
+    "Zoom": 0.54015517800261992
+  }
+}

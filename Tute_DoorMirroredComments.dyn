@@ -1,0 +1,87 @@
+{
+  "Uuid": "b51a9ac0-5657-4604-bd61-67cdcb9e6650",
+  "IsCustomNode": false,
+  "Description": null,
+  "Name": "Tute_DoorMirroredComments",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "import clr\r\n# Import RevitAPI Dll Assembly Classes\r\nclr.AddReference(\"RevitAPI\")\r\nfrom Autodesk.Revit.DB import FilteredElementCollector, BuiltInCategory\r\n\r\n# Adds RevitServices Assembly and Import DocumentManager and TransactionManager\r\nclr.AddReference(\"RevitServices\")\r\nfrom RevitServices.Transactions import TransactionManager\r\nfrom RevitServices.Persistence import DocumentManager\r\n# Create variable for Revit Document\r\ndoc = DocumentManager.Instance.CurrentDBDocument\r\n\r\n# Start transaction\r\nTransactionManager.Instance.EnsureInTransaction(doc)\r\n\r\ncollector = FilteredElementCollector(doc)\r\ndoors = collector.OfCategory(BuiltInCategory.OST_Doors).WhereElementIsNotElementType()\r\n\r\nfor door in doors:\r\n\tif door.Mirrored:\r\n\t\tcomment_param = door.LookupParameter('Comments')\r\n\t\t# returns a parameter object\r\n\t\tcomment_param.Set('Is Mirrored')\r\n# End Transaction\r\n\r\nTransactionManager.Instance.TransactionTaskDone()",
+      "Engine": "IronPython2",
+      "VariableInputPorts": true,
+      "Id": "a056091c4e0a468cab28c3f5075cf37d",
+      "Inputs": [
+        {
+          "Id": "1c7138bf96f54de3acfd9c31e1375bc7",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "7d140a5a05a443fda55343e236056193",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded Python script."
+    }
+  ],
+  "Connectors": [],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.10.1.3976",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Python Script",
+        "Id": "a056091c4e0a468cab28c3f5075cf37d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 298.5,
+        "Y": 247.5
+      }
+    ],
+    "Annotations": [],
+    "X": 0.0,
+    "Y": 0.0,
+    "Zoom": 1.0
+  }
+}

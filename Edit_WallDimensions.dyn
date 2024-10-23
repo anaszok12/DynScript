@@ -1,0 +1,121 @@
+{
+  "Uuid": "b18ff8c6-02ab-49e3-9114-a40e38acba44",
+  "IsCustomNode": false,
+  "Description": null,
+  "Name": "Edit_WallDimensions",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Application.Document.Current",
+      "Id": "0d1a8d1511ae44098d0c330174b7dacb",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "6f4ad93fd4714b9b9d45292422bb100c",
+          "Name": "Document",
+          "Description": "Document",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get the current document\n\nDocument.Current: Document"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Application.Document.ActiveView",
+      "Id": "71c7310a887e4d0690ae4e06bff65b98",
+      "Inputs": [
+        {
+          "Id": "00fd1d4ec2e0404cb5db999fa8dfbf1f",
+          "Name": "document",
+          "Description": "Revit.Application.Document",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "6143681273e24a28a96ab5534f064a73",
+          "Name": "View",
+          "Description": "View",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get the active view for the document\n\nDocument.ActiveView: View"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "6f4ad93fd4714b9b9d45292422bb100c",
+      "End": "00fd1d4ec2e0404cb5db999fa8dfbf1f",
+      "Id": "1ec1d6bad6ed4fb8b7a7d8d7e780ab71"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.10.1.3976",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -526.42742919921875,
+      "EyeY": 929.1123046875,
+      "EyeZ": -85.947822570800781,
+      "LookX": 273.95855712890625,
+      "LookY": -250.1302490234375,
+      "LookZ": -262.8143310546875,
+      "UpX": 0.25860970613822959,
+      "UpY": 0.9335804264972053,
+      "UpZ": -0.24808991747429371
+    },
+    "NodeViews": [
+      {
+        "Id": "0d1a8d1511ae44098d0c330174b7dacb",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Document.Current",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 2697.3978929281698,
+        "Y": 210.35831862952807
+      },
+      {
+        "Id": "71c7310a887e4d0690ae4e06bff65b98",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Document.ActiveView",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 2848.8702875286467,
+        "Y": 209.10648065762314
+      }
+    ],
+    "Annotations": [],
+    "X": -926.0637280573676,
+    "Y": 88.1098897981174,
+    "Zoom": 0.555820647824189
+  }
+}
